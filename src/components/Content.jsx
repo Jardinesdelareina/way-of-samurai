@@ -1,32 +1,28 @@
 import React from "react";
+import s from "./Content.module.css";
 
 const Content = () => {
   return (
-    <main className="content">
-      <div className="content__image">
-        <img src="background.jpg" />
+    <main className={s.content}>
+      <div className={s.content__image}>
+        <img className={s.background} src="background.jpg" />
       </div>
-      <div className="content__head">
-        <div className="ava">
-          <img src="ava.png" />
+      <div className={s.content__head}>
+        <div className={s.content__ava}>
+          <img className={s.ava} src="ava.png" />
         </div>
-        <div className="description">
-          <div class="description__name">Андрей Костюк</div>
-          <div class="description__birthday">05.08.1992</div>
-          <div class="description__city">Архангельск</div>
+        <div className={s.description}>
+          <div class={s.description__name}>Андрей Костюк</div>
+          <div class={s.description__birthday}>05.08.1992</div>
+          <div class={s.description__city}>Архангельск</div>
+          <div class={s.description__language}>JavaScript</div>
+        </div>
+        <div className={s.post__form}>
+          <textarea className={s.form__form} placeholder="Напишите" />
+          <button className={s.form__button}>Отправить</button>
         </div>
       </div>
-      <div className="content__post">
-        <form className="post__form">
-          <p>My post</p>
-          <div className="mypost"></div>
-          <input className="form__form" />
-          <button className="form__button" href="#">
-            Отправить
-          </button>
-        </form>
-      </div>
-      <div className="content__message"></div>
+      <div className={s.content__message}></div>
     </main>
   );
 };

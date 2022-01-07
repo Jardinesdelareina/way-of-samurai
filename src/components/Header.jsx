@@ -1,28 +1,29 @@
 import React from 'react';
+import s from "./Header.module.css";
 
 const Header = () => { 
     return (
-      <header className="header">
-        <div className="header__logo">
+      <header className={s.header}>
+        <div className={s.header__logo}>
           <a href="#">
-            <img src="logo192.png" />
+            <img className={s.logo} src="logo192.png" />
           </a>
         </div>
-        <div className="header__menu">
-          <a href="#" className="header__link">
+        <div className={s.header__menu}>
+          <a href="#" className={s.header__link}>
             О сайте
           </a>
-          <a href="#" className="header__link">
+          <a href="#" className={s.header__link}>
             Контакты
           </a>
         </div>
-        <div className="header__button">
-          <button href="#" className="button__enter">
+        <div className={s.header__button}>
+          <a href="#" className={s.button__enter}>
             Вход
-          </button>
-          <button href="#" className="button__reg">
+          </a>
+          <a href="#" className={s.button__reg}>
             Регистрация
-          </button>
+          </a>
         </div>
       </header>
     );
