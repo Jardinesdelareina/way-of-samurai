@@ -13,7 +13,7 @@ const Content = () => {
         <div className="description">
           <div class="description__name">Андрей Костюк</div>
           <div class="description__birthday">05.08.1992</div>
-          <div class="description__city">Санкт-Петербург</div>
+          <div class="description__city">Архангельск</div>
         </div>
       </div>
       <div className="content__post">
