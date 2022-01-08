@@ -9,7 +9,7 @@ const Post = () => {
     return (
       <div className={s.content__post}>
         <PostAva/>
-        <PostText/>
+        <PostText />
       </div>
     );
 };

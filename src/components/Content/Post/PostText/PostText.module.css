@@ -1,6 +1,29 @@
+.post__text {
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    min-width: 300px;
+    
+}
+.name__user a {
+    padding-left: 15px;
+    font-size: 18px;
+    color:rgb(0, 174, 255) ;
+}
 .text__user {
     background-color: rgba(0, 174, 255, 0.329);
     color: gray;
     padding: 15px;
     border-radius: 10px;
+    margin: 5px;
+    font-size: 20px;
+}
+.post__like {
+    margin-left: 90%;
+    padding-bottom: 10px;
+}
+
+.like {
+    width: 20px;
+    height: 20px;
 }

@@ -3,7 +3,7 @@ import s from "./Textarea.module.css";
 
 const Textarea = () => {
     return (
-        <textarea className={s.form__textarea} placeholder="Напишите" />
+        <textarea className={s.form__textarea} placeholder="Напишите..." />
     );
 };
 export default Textarea;
