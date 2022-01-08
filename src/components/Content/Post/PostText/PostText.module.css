@@ -1,0 +1,6 @@
+.text__user {
+    background-color: rgba(0, 174, 255, 0.329);
+    color: gray;
+    padding: 15px;
+    border-radius: 10px;
+}
