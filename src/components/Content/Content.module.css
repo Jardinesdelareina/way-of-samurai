@@ -1,0 +1,4 @@
+.content {
+    grid-area: c;
+    box-shadow: 0 0 5px gray;
+}

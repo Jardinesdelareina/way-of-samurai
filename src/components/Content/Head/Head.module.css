@@ -1,0 +1,5 @@
+.content__head {
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+}

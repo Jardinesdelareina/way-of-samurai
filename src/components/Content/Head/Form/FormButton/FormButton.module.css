@@ -1,0 +1,10 @@
+.form__button {
+    max-width: 15%;
+    height: 50px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(0, 174, 255, 0.5);
+    color: white;
+    font-size: 18px;
+    margin: 5px;
+}
