@@ -1,18 +1,17 @@
 import React from "react";
-import s from "./Content.module.css";
 import Head from "./Head/Head";
 import Image from "./Image/Image";
 import Post from "./Post/Post";
 
 
-const Content = () => {
+const Profile = () => {
   return (
-    <main className={s.content}>
-      <Image/>
+    <main>
+      <Image />
       <Head />
-      <Post/>
+      <Post />
     </main>
   );
 };
 
-export default Content;
+export default Profile;
