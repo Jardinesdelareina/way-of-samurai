@@ -1,0 +1,22 @@
+.dialogs__names {
+    min-width: 25%;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 10px 0 0 10px;
+}
+.dialogs__names:hover {
+    box-shadow: 0 0 20px rgba(128, 128, 128, 0.5);
+}
+
+.dialogs__items {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.item {
+    padding: 20px;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    margin-left: 20px;
+}

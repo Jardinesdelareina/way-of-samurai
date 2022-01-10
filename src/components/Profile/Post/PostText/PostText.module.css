@@ -27,3 +27,6 @@
     width: 20px;
     height: 20px;
 }
+.like:hover {
+    transform: scale(1.1);
+}

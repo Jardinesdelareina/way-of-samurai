@@ -6,6 +6,7 @@
     padding: 1%;
     box-shadow: 0 0 5px gray;
     background-color:rgba(0, 172, 220, 0.13);
+    border-radius: 10px;
 }
   
 .logo {
@@ -31,12 +32,12 @@
 }
   
 .button__enter {
-    color: rgba(0, 174, 255, 0.5);
+    color: rgba(39, 106, 138, 0.5);
     margin-right: 10px;
     font-weight: 700;
 }
 
 .button__reg {
-    color: rgba(0, 174, 255, 0.5);
+    color: rgba(39, 106, 138, 0.5);
     font-weight: 700;
 }
