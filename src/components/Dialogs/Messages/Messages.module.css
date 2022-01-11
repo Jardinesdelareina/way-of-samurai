@@ -25,22 +25,6 @@
 }
 
 
-.my__message {
-    display: flex;
-    justify-content: flex-end;
-    margin: 20px;
-}
-.my__text {
-    background-color: rgba(0, 172, 220, 0.8);
-    color: white;
-    font-size: 15px;
-    padding: 2%;
-    margin-right: 1%;
-    border-radius: 15px;
-    max-width: 70%;
-    font-weight: 500;
-}
-
 
 .ava {
     width: 50px;

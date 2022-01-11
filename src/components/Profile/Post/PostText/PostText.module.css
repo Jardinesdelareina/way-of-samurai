@@ -5,12 +5,12 @@
     min-width: 300px;
     
 }
-.name__user a {
-    padding-left: 15px;
-    font-size: 18px;
-    color:rgb(0, 174, 255) ;
+
+.post__container {
+    display: flex;
 }
-.text__user {
+
+.post__user {
     background-color: rgba(0, 174, 255, 0.329);
     color: gray;
     padding: 15px;
@@ -18,15 +18,11 @@
     margin: 5px;
     font-size: 20px;
 }
-.post__like {
-    margin-left: 85%;
-    padding-bottom: 10px;
-}
 
-.like {
-    width: 20px;
-    height: 20px;
-}
-.like:hover {
-    transform: scale(1.1);
+.ava__user {
+    max-height: 50px;
+    max-height: 50px;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 50%;
 }

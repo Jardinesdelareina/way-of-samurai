@@ -1,4 +1,4 @@
 .content__post {
     display: flex;
-    
+    align-items: center;
 }
