@@ -14,15 +14,8 @@ const UserMessage = (props) => {
 };
 
 const Messages = (props) => {
-  
-  let messageData = [
-    { id: 1, message: "Hola" },
-    { id: 2, message: "Que tal?" },
-    { id: 3, message: "Que hora es?" },
-    { id: 4, message: "Ahora es 4 de la tarde" },
-  ];
 
-  let messagesElements = messageData.map( dialogMessage =>
+  let messagesElements = props.messageData.map( dialogMessage =>
     <UserMessage message={dialogMessage.message} id={dialogMessage.id} />
   );
 

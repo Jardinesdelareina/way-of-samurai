@@ -4,11 +4,11 @@ import Ava from "./Ava/Ava";
 import Description from "./Description/Description";
 import Form from "./Form/Form";
 
-const Head = () => {
+const Head = (props) => {
     return (
       <div className={s.content__head}>
         <Ava/>
-        <Description/>
+        <Description />
         <Form/>
       </div>
     );

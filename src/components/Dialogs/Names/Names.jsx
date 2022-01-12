@@ -11,15 +11,7 @@ const NameItem = (props) => {
 
 const Names = (props) => {
 
-    let nameData = [
-        { id: 1, name: "oleg" },
-        { id: 2, name: "sereja" },
-        { id: 3, name: "kolya" },
-        { id: 4, name: "lesha" },
-        { id: 5, name: "dima" },
-    ];
-
-    let namesElements = nameData.map( dialogName => 
+    let namesElements = props.nameData.map( dialogName => 
         <NameItem name={dialogName.name} id={dialogName.id} />
     );
 

@@ -3,11 +3,11 @@ import s from "./Dialogs.module.css";
 import Names from "./Names/Names";
 import Messages from "./Messages/Messages";
 
-const Dialogs = () => {
+const Dialogs = (props) => {
   return (
     <div className={s.dialogs}>
-      <Names />
-      <Messages />
+      <Names nameData={props.nameData} />
+      <Messages messageData={props.messageData} />
     </div>
   );
 };

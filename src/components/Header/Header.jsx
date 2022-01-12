@@ -1,19 +1,20 @@
 import React from "react";
 import s from "./Header.module.css";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className={s.header}>
-      <div className={s.header__logo}>
+      <NavLink to={"/"} className={s.header__logo}>
         <img className={s.logo} src="logo192.png" />
-      </div>
+      </NavLink>
       <div className={s.header__menu}>
-        <a href="#" className={s.header__link}>
-          О сайте
-        </a>
-        <a href="#" className={s.header__link}>
-          Контакты
-        </a>
+          <NavLink to={"/about"} className={s.header__link}>
+            О сайте
+          </NavLink>
+          <NavLink to={"/contacts"} className={s.header__link}>
+            Контакты
+          </NavLink>
       </div>
       <div className={s.header__button}>
         <a href="#" className={s.button__enter}>

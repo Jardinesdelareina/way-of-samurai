@@ -4,12 +4,12 @@ import Head from "./Head/Head";
 import Image from "./Image/Image";
 import Post from "./Post/Post";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <main>
       <Image />
       <Head />
-      <Post />
+      <Post myPost={props.myPost}/>
     </main>
   );
 };
