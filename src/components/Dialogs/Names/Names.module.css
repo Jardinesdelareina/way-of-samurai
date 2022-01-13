@@ -12,6 +12,11 @@
     flex-direction: column;
     min-height: 100%;
 }
+.dialog__item {
+   display: flex;
+   align-items: center;
+   margin-left: 10%;
+}
 
 .item {
     padding: 20px;
@@ -19,4 +24,11 @@
     color: rgba(0, 0, 0, 0.5);
     font-weight: 500;
     margin-left: 20px;
+}
+
+.ava {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
 }

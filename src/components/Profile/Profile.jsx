@@ -9,7 +9,7 @@ const Profile = (props) => {
     <main>
       <Image />
       <Head />
-      <Post myPost={props.myPost}/>
+      <Post myPost={props.state.myPost}/>
     </main>
   );
 };
