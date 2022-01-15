@@ -1,4 +1,3 @@
-
 let state = {
     profilePage: {
         myPost: [
@@ -25,6 +24,9 @@ let state = {
             { id: 3, name: "kolya" },
             { id: 4, name: "lesha" },
             { id: 5, name: "dima" },
+            { id: 6, name: "sasha" },
+            { id: 7, name: "pasha" },
+            { id: 8, name: "gena" },
         ],
         messageData: [
             { id: 1, message: "Hola" },
@@ -32,6 +34,7 @@ let state = {
             { id: 3, message: "Que hora es?" },
             { id: 4, message: "Ahora es 4 de la tarde" },
             { id: 5, message: "Gracias!" },
+            { id: 6, message: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam numquam, quaerat eos reiciendis qui laudantium nihil? Cupiditate voluptatem ex, aliquam dolores accusamus, amet, sint commodi fuga consequuntur ad officiis eum." },
         ],
     },
     

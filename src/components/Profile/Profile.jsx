@@ -1,16 +1,14 @@
 import React from "react";
-import s from "./Profile.module.css"
-import Head from "./Head/Head";
-import Image from "./Image/Image";
+import s from "./Profile.module.scss";
+import User from "./User/User";
 import Post from "./Post/Post";
 
 const Profile = (props) => {
   return (
-    <main>
-      <Image />
-      <Head />
+    <div className={s.profile}>
+      <User />
       <Post myPost={props.state.myPost}/>
-    </main>
+    </div>
   );
 };
 

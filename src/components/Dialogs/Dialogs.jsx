@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./Dialogs.module.css";
+import s from "./Dialogs.module.scss";
 import Names from "./Names/Names";
 import Messages from "./Messages/Messages";
 

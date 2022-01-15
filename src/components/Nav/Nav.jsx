@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./Nav.module.css";
+import s from "./Nav.module.scss";
 import { NavLink } from "react-router-dom";
 
 const Nav = () => {

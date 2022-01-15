@@ -1,0 +1,53 @@
+.profile__post {
+    display: flex;
+    flex-wrap: wrap;
+    .post__form {
+        display: flex;
+        flex-direction: column;
+        flex: 0 1 50%;
+        .form__textarea {
+            min-width: 100%;
+            min-height: 100px;
+            border-radius: 10px;
+            border: 3px solid rgba(0, 174, 255, 0.329);
+            color: rgb(128, 128, 128);
+            padding: 5px;
+            font-size: 20px;
+            background-color: rgba(0, 172, 220, 0.055);
+            margin: 5px;
+            resize: none;
+        }
+        .form__button {
+            max-width: 20%;
+            min-width: 100px;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: rgba(0, 174, 255, 0.5);
+            color: white;
+            font-size: 18px;
+            margin: 5px;
+            &:hover {
+                transform: scale(0.95);
+            }
+        }
+    }
+    .post__post {
+        display: flex;
+        padding: 0 10px;
+        .post__ava img {
+            max-height: 50px;
+            max-height: 50px;
+            overflow: hidden;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        .post__message {
+            background-color: rgba(0, 174, 255, 0.329);
+            color: gray;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 5px;
+            font-size: 20px;
+        }
+    }
+}

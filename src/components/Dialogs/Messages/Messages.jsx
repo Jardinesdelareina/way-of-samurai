@@ -1,28 +1,30 @@
 import React from "react";
-import s from "./Messages.module.css";
-import Form from "../../Profile/Head/Form/Form";
+import s from "./Messages.module.scss";
 
-const UserMessage = (props) => {
+const MessageItem = (props) => {
   return (
-    <div className={s.user__message}>
-      <div className={s.user__ava}>
-        <img className={s.ava} src="ava.png" />
+    <div className={s.messages__posts}>
+      <div className={s.myPost}>
+        <div className={s.my__ava}>
+          <img src="ava.png" />
+        </div>
+        <div className={s.my__text}>{props.message}</div>
       </div>
-      <div className={s.user__text}>{props.message}</div>
     </div>
   );
 };
 
 const Messages = (props) => {
-
-  let messagesElements = props.messageData.map( dialogMessage =>
-    <UserMessage message={dialogMessage.message} id={dialogMessage.id} />
-  );
-
+  let elementMessage = props.messageData.map((m) => (
+    <MessageItem id={m.id} message={m.message} />
+  ));
   return (
-    <div className={s.dialogs__messages}>
-      { messagesElements }
-      <Form />
+    <div className={s.messages}>
+      {elementMessage}
+      <div className={s.messages__form}>
+        <textarea />
+        <button>Отправить</button>
+      </div>
     </div>
   );
 };

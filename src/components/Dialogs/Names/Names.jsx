@@ -1,33 +1,24 @@
 import React from "react";
-import s from "./Names.module.css";
+import s from "./Names.module.scss";
 import { NavLink } from "react-router-dom";
 
 const NameItem = (props) => {
-  let path = "/dialogs/" + props.id;
+  let path = "/dialogs/" + props.name;
   return (
-    <NavLink to={path} className={s.item}>
-      <div className={s.dialog__item}>
-        <div className={s.user__ava}>
-          <img className={s.ava} src="ava.png" />
-        </div>
-        {props.name}
+    <NavLink to={path} className={s.names__item}>
+      <div className={s.item__ava}>
+        <img src="ava.png" />
       </div>
+      <div className={s.item__name}>{props.name}</div>
     </NavLink>
   );
 };
 
 const Names = (props) => {
-  let namesElements = props.nameData.map((dialogName) => (
-    <NameItem name={dialogName.name} id={dialogName.id} />
+  let elementName = props.nameData.map((n) => (
+    <NameItem name={n.name} />
   ));
-
-  return (
-    <div className={s.dialogs__names}>
-      <div className={s.dialogs__items}>
-        <div>{namesElements}</div>
-      </div>
-    </div>
-  );
+  return <div className={s.names}>{elementName}</div>;
 };
 
 export default Names;
