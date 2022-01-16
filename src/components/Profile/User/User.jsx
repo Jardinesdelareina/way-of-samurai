@@ -9,9 +9,7 @@ const User = (props) => {
         <img className={s.user__image} src="background.jpg" />
       </div>
       <div className={s.user__description}>
-        <div className={s.user__ava}>
-          <img className={s.ava} src="ava.png" />
-        </div>
+        <div className={s.user__ava}></div>
         <div className={s.user__info}>
           <div className={s.info__name}>Андрей Костюк</div>
           <div className={s.info__birthday}>05.08.1992</div>

@@ -1,20 +1,23 @@
+import { rerenderEntireTree } from "./../render";
+
 let state = {
     profilePage: {
         myPost: [
             {
-                id: "1",
+                id: 1,
                 message: "Hi! How are you?",
             },
             {
-                id: "2",
+                id: 2,
                 message: "Todo esta bien!!!",
             },
             {
-                id: "3",
+                id: 3,
                 message:
                     "Lorem, ipsum",
             },
         ],
+        newPostText: "",
     },
     
     dialogsPage: {
@@ -36,8 +39,42 @@ let state = {
             { id: 5, message: "Gracias!" },
             { id: 6, message: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam numquam, quaerat eos reiciendis qui laudantium nihil? Cupiditate voluptatem ex, aliquam dolores accusamus, amet, sint commodi fuga consequuntur ad officiis eum." },
         ],
+        newMessageText: "",
     },
-    
+};
+
+window.state = state;
+
+// Добавление нового поста в профиле
+export let addPost = () => {
+    let newPost = {
+        id: 4,
+        message: state.profilePage.newPostText,
+    };
+    state.profilePage.myPost.push(newPost);
+    state.profilePage.newPostText = "";
+    rerenderEntireTree(state);
+}
+
+export let updateNewPostText = (newCreatePost) => {
+    state.profilePage.newPostText = newCreatePost;
+    rerenderEntireTree(state);
+}
+
+// Добавление нового сообщения в диалогах
+export let addMessage = () => {
+    let newMessage = {
+        id: 7,
+        message: state.dialogsPage.newMessageText,
+    };
+    state.dialogsPage.messageData.push(newMessage);
+    state.dialogsPage.newMessageText = "";
+    rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (newCreateMessage) => {
+    state.dialogsPage.newMessageText = newCreateMessage;
+    rerenderEntireTree(state);
 }
 
 export default state;

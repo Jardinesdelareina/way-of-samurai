@@ -6,9 +6,7 @@ const NameItem = (props) => {
   let path = "/dialogs/" + props.name;
   return (
     <NavLink to={path} className={s.names__item}>
-      <div className={s.item__ava}>
-        <img src="ava.png" />
-      </div>
+      <div className={s.item__ava}></div>
       <div className={s.item__name}>{props.name}</div>
     </NavLink>
   );

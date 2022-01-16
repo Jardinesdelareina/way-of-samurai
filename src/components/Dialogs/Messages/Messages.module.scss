@@ -10,10 +10,11 @@
         .myPost {
             display: flex;
             margin: 1%;
-            .my__ava img {
+            .my__ava {
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
+                background-color: brown;
             }
             .my__text {
                 background-color: rgba(0, 172, 220, 0.5);

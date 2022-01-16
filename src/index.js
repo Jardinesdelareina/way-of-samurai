@@ -1,11 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./style/index.scss";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import { rerenderEntireTree } from "./render";
 import state from "./redux/state";
+
  
-ReactDOM.render(<App state={state} />, document.getElementById("root"));
-
-
-reportWebVitals();
+rerenderEntireTree(state);

@@ -6,8 +6,13 @@ import Messages from "./Messages/Messages";
 const Dialogs = (props) => {
   return (
     <div className={s.dialogs}>
-      <Names nameData={props.state.nameData} />
-      <Messages messageData={props.state.messageData} />
+      <Names nameData={props.dialogsPage.nameData} />
+      <Messages
+        messageData={props.dialogsPage.messageData}
+        newMessageText={props.dialogsPage.newMessageText}
+        addMessage={props.addMessage}
+        updateNewMessageText={props.updateNewMessageText}
+      />
     </div>
   );
 };
