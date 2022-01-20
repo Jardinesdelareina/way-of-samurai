@@ -1,20 +1,22 @@
 .nav {
     grid-area: n;
     padding: 18px;
-    box-shadow: 0 0 5px gray;
-    background-color: rgba(0, 172, 220, 0.13);
+    box-shadow: 0 0 5px rgba(135, 108, 153, 0.4);
+    background-color: rgba(135, 108, 153, 0.4);
     display: flex;
     flex-direction: column;
     border-radius: 10px;
     .nav__item {
         text-decoration: none;
-        color: rgb(0, 173, 255);
+        color: rgb(135, 108, 153);
         font-size: 18px;
         font-weight: 500;
         margin: 7px;
         text-align: center;
         &:focus {
-            color: rgba(39, 106, 138, 0.5);
+            color: rgb(135, 108, 153);
+            transform: scale(1.1);
+            font-weight: 700;
         }
     }
 }

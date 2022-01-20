@@ -17,7 +17,7 @@
                 background-color: brown;
             }
             .my__text {
-                background-color: rgba(0, 172, 220, 0.5);
+                background-color: rgba(135, 108, 153, 0.4);
                 color: gray;
                 font-size: 18px;
                 padding: 2%;
@@ -34,7 +34,7 @@
         textarea {
             min-height: 100px;
             border-radius: 10px;
-            border: 3px solid rgba(0, 174, 255, 0.329);
+            border: 3px solid rgba(135, 108, 153, 0.4);
             color: rgb(128, 128, 128);
             padding: 5px;
             font-size: 20px;
@@ -46,8 +46,8 @@
             min-width: 100px;
             padding: 5px;
             border-radius: 10px;
-            background-color: rgba(0, 174, 255, 0.5);
-            color: white;
+            background-color: rgba(135, 108, 153, 0.5);
+            color: rgb(135, 108, 153);
             font-size: 18px;
             margin: 1%;
             &:hover {

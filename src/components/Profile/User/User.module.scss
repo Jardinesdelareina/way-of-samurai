@@ -24,7 +24,7 @@
         .info__name {
             font-size: 20px;
             padding-bottom: 5px;
-            color: rgb(0, 174, 255);
+            color: rgb(135, 108, 153);
         }
         .info__birthday {
             color: gray;
@@ -33,7 +33,7 @@
             color:gray
         }
         .info__language {
-            color: rgb(0, 174, 255);
+            color: rgba(135, 108, 153, 0.6);
         }
     }
     .user__about {
@@ -44,5 +44,4 @@
             color: gray;
         }
     }
-    
 }

@@ -3,20 +3,22 @@ import ReactDOM from "react-dom";
 import "./style/index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { addMessage, addPost, subscribe, updateNewMessageText, updateNewPostText } from "./redux/state";
-import state from "./redux/state";
- 
-let rerenderEntireTree = (state) => { 
-    ReactDOM.render(<App
+import store from "./redux/state";
+import { BrowserRouter } from 'react-router-dom'
+
+let rerenderEntireTree = (state) => {
+  ReactDOM.render(
+    <BrowserRouter>
+      <App
         state={state}
-        addPost={addPost}
-        updateNewPostText={updateNewPostText}
-        addMessage={addMessage}
-        updateNewMessageText={updateNewMessageText}
-    />, document.getElementById("root"));
-    reportWebVitals();
-}
+        dispatch={store.dispatch.bind(store)}
+      />
+    </BrowserRouter>,
+    document.getElementById("root")
+  );
+  reportWebVitals();
+};
 
-rerenderEntireTree(state);
+rerenderEntireTree(store.getState());
 
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);

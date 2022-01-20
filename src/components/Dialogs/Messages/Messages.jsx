@@ -1,5 +1,6 @@
 import React from "react";
 import s from "./Messages.module.scss";
+import { addMessageActionCreator, updateNewMessageChangeActionCreator } from "./../../../redux/state";
 
 const MessageItem = (props) => {
   return (
@@ -17,11 +18,11 @@ const Messages = (props) => {
   let newElementMessage = React.createRef();
 
   let addMessage = () => {
-    props.addMessage();
+    props.dispatch(addMessageActionCreator());
   }
   let onMessageChange = () => {
-    let text = newElementMessage.current.value;
-    props.updateNewMessageText(text);
+    let body = newElementMessage.current.value;
+    props.dispatch(updateNewMessageChangeActionCreator(body));
   }
 
   let elementMessage = props.messageData.map((m) => (
