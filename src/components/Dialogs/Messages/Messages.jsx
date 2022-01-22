@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Messages.module.scss";
-import { addMessageActionCreator, updateNewMessageChangeActionCreator } from "./../../../redux/state";
+import { addMessageActionCreator, updateNewMessageChangeActionCreator } from "./../../../redux/dialogReducer";
 
 const MessageItem = (props) => {
   return (

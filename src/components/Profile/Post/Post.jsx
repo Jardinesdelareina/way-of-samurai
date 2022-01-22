@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./Post.module.scss";
-import { addPostActionCreator, updateNewPostChangeActionCreator } from "./../../../redux/state";
+import { addPostActionCreator, updateNewPostChangeActionCreator } from "./../../../redux/profileReducer";
 
 const PostItem = (props) => {
   return (
