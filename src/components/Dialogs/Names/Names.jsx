@@ -14,7 +14,7 @@ const NameItem = (props) => {
 
 const Names = (props) => {
   let elementName = props.nameData.map((n) => (
-    <NameItem name={n.name} />
+    <NameItem id={n.id} name={n.name} />
   ));
   return <div className={s.names}>{elementName}</div>;
 };

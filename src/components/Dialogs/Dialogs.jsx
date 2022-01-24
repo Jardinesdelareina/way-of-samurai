@@ -1,19 +1,13 @@
 import React from "react";
 import s from "./Dialogs.module.scss";
-import Names from "./Names/Names";
-import Messages from "./Messages/Messages";
+import MessagesContainer from "./Messages/MessagesContainer";
+import NamesContainer from "./Names/NamesContainer";
 
 const Dialogs = (props) => {
   return (
     <div className={s.dialogs}>
-      <Names nameData={props.dialogsPage.nameData} />
-      <Messages
-        messageData={props.dialogsPage.messageData}
-        newMessageText={props.dialogsPage.newMessageText}
-        dispatch={props.dispatch}
-        //addMessage={props.addMessage}
-        //updateNewMessageText={props.updateNewMessageText}
-      />
+      <NamesContainer store={props.store} />
+      <MessagesContainer store={props.store} />
     </div>
   );
 };

@@ -1,6 +1,5 @@
 import React from "react";
 import s from "./Messages.module.scss";
-import { addMessageActionCreator, updateNewMessageChangeActionCreator } from "./../../../redux/dialogReducer";
 
 const MessageItem = (props) => {
   return (
@@ -17,12 +16,12 @@ const Messages = (props) => {
 
   let newElementMessage = React.createRef();
 
-  let addMessage = () => {
-    props.dispatch(addMessageActionCreator());
+  let onAddMessage = () => {
+    props.addMessage();
   }
   let onMessageChange = () => {
     let body = newElementMessage.current.value;
-    props.dispatch(updateNewMessageChangeActionCreator(body));
+    props.updateNewMessageBody(body);
   }
 
   let elementMessage = props.messageData.map((m) => (
@@ -37,7 +36,7 @@ const Messages = (props) => {
           onChange={onMessageChange}
           value={props.newMessageText}
         />
-        <button onClick={addMessage}>Отправить</button>
+        <button onClick={onAddMessage}>Отправить</button>
       </div>
     </div>
   );
