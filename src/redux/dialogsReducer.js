@@ -1,5 +1,5 @@
 const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+const UPDATE_NEW_MESSAGE_BODY = "UPDATE-NEW-MESSAGE-BODY";
 
 let initialState = {
   nameData: [
@@ -31,7 +31,7 @@ let dialogsReducer = (state = initialState, action) => {
       state.messageData.push(newPost);
       state.newMessageText = "";
       return state;
-    case UPDATE_NEW_MESSAGE_TEXT:
+    case UPDATE_NEW_MESSAGE_BODY:
       state.newMessageText = action.newCreateMessage;
       return state;
     default:
@@ -41,7 +41,7 @@ let dialogsReducer = (state = initialState, action) => {
 
 export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
 export const updateNewMessageChangeActionCreator = (body) => ({
-  type: UPDATE_NEW_MESSAGE_TEXT,
+  type: UPDATE_NEW_MESSAGE_BODY,
   newCreateMessage: body,
 });
 
