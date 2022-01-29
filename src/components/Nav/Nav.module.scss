@@ -13,10 +13,9 @@
         font-weight: 500;
         margin: 7px;
         text-align: center;
-        &:focus {
+        &:active {
             color: rgb(135, 108, 153);
-            transform: scale(1.1);
-            font-weight: 700;
+            transform: scale(0.95);
         }
     }
 }

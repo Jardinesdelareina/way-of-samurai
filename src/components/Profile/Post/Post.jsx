@@ -24,7 +24,7 @@ const Post = (props) => {
   }
   
   let elementPost = props.myPost.map((p) => (
-    <PostItem id={p.id} message={p.message} />
+    <PostItem key={p.id} message={p.message} />
   ));
   return (
     <div className={s.profile__post}>

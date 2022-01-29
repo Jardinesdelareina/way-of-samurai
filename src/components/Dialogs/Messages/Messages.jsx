@@ -25,7 +25,7 @@ const Messages = (props) => {
   }
 
   let elementMessage = props.messageData.map((m) => (
-    <MessageItem id={m.id} message={m.message} />
+    <MessageItem key={m.id} message={m.message} />
   ));
   return (
     <div className={s.messages}>
