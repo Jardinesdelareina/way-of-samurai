@@ -8,13 +8,10 @@
     &:hover {
         box-shadow: 0 0 20px rgba(128, 128, 128, 0.5);
     }
-    .user__ava {
-        height: 50px;
-        width: 50px;
-        margin: 10px;
+    .user__ava img {
+        height: 70px;
+        width: 70px;
         border-radius: 50%;
-        background-color: khaki;
-        padding: 10px;
     }
     .user__name {
         font-size: 20px;

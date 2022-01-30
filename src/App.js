@@ -24,7 +24,7 @@ const App = (props) => {
             element={<Dialogs />}
           />
           <Route
-            path="/users/*"
+            path="/users"
             element={<UsersContainer />}
           />
           <Route path="/about" element={<About />} />
