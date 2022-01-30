@@ -24,11 +24,22 @@
         padding: 10px;
 
     }
+    .user__unfollow {
+        padding: 5px;
+        border-radius: 10px;
+        background-color: brown;
+        color: white;
+        font-size: 12px;
+        margin: 5px;
+        &:active {
+            transform: scale(0.95);
+        }
+    }
     .user__follow {
         padding: 5px;
         border-radius: 10px;
-        background-color: rgba(135, 108, 153, 0.6);
-        color: rgb(135, 108, 153);
+        background-color: rgb(36, 119, 25);
+        color: white;
         font-size: 12px;
         margin: 5px;
         &:active {
