@@ -1,3 +1,12 @@
+.currentPage {
+    margin: 20px;
+    span {
+        padding: 1%;
+        cursor: pointer;
+        color: rgb(135, 108, 153);
+        font-size: 20px;
+    }
+}
 .user {
     display: flex;
     align-items: center;
@@ -25,22 +34,24 @@
 
     }
     .user__unfollow {
+        width: 100%;
+        border-radius: 5px;
         padding: 5px;
-        border-radius: 10px;
-        background-color: brown;
-        color: white;
-        font-size: 12px;
+        text-align: center;
+        background-color: gray;
+        color: rgba(255, 255, 255, 0.6);
         margin: 5px;
         &:active {
             transform: scale(0.95);
         }
     }
     .user__follow {
+        width: 100%;
+        border-radius: 5px;
         padding: 5px;
-        border-radius: 10px;
-        background-color: rgb(36, 119, 25);
-        color: white;
-        font-size: 12px;
+        text-align: center;
+        background-color: rgb(135, 108, 153);
+        color: rgba(255, 255, 255, 0.6);
         margin: 5px;
         &:active {
             transform: scale(0.95);
