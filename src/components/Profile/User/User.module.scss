@@ -9,12 +9,11 @@
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
-    .user__ava {
+    .user__ava img {
         height: 70px;
         width: 70px;
         margin: 10px;
         border-radius: 50%;
-        background-color: gold;
     }
     .user__info {
         display: flex;
@@ -26,13 +25,13 @@
             padding-bottom: 5px;
             color: rgb(135, 108, 153);
         }
-        .info__birthday {
+        .info__twitter {
             color: gray;
         }
-        .info__city {
+        .info__instagram {
             color:gray
         }
-        .info__country {
+        .info__github {
             color:gray
         }
     }

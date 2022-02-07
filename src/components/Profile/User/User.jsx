@@ -1,23 +1,30 @@
 import React from "react";
 import s from "./User.module.scss";
-
+import Preloader from "./../../common/Preloader/Preloader";
 
 const User = (props) => {
+
+  if (!props.profile) {
+    return (<Preloader />)
+  }
+
   return (
     <div className={s.user}>
       <div className={s.user__image}>
         <img className={s.user__image} src="background.jpg" />
       </div>
       <div className={s.user__description}>
-        <div className={s.user__ava}></div>
+        <div className={s.user__ava}>
+          <img src={props.profile.photos.large} />
+        </div>
         <div className={s.user__info}>
-          <div className={s.info__name}>Андрей Костюк</div>
-          <div className={s.info__birthday}>05.08.1992</div>
-          <div className={s.info__country}>Россия</div>
-          <div className={s.info__city}>Архангельск</div>
+          <div className={s.info__name}>{props.profile.fullName}</div>
+          <div className={s.info__twitter}>{props.profile.contacts.twitter}</div>
+          <div className={s.info__instagram}>{props.profile.contacts.instagram}</div>
+          <div className={s.info__github}>{props.profile.contacts.github}</div>
         </div>
         <div className={s.user__about}>
-          <i>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla quaerat repellat, recusandae mollitia eius optio fuga enim quasi, maiores ullam velit nemo debitis vero odio eveniet error aliquam reiciendis similique?</i>
+          <i>{props.profile.aboutMe}</i>
         </div>
       </div>
     </div>

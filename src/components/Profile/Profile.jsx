@@ -6,7 +6,7 @@ import PostContainer from "./Post/PostContainer";
 const Profile = (props) => {
   return (
     <div className={s.profile}>
-      <User />
+      <User profile={props.profile} />
       <PostContainer />
     </div>
   );

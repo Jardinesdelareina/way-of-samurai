@@ -1,10 +1,16 @@
 .currentPage {
     margin: 20px;
-    span {
-        padding: 1%;
+    padding: 0 10px 0 10px;
+    cursor: pointer;
+    color: rgb(135, 108, 153);
+    font-size: 18px;
+    .selectedPage {
+        padding: 5px;
         cursor: pointer;
-        color: rgb(135, 108, 153);
+        color: brown;
         font-size: 20px;
+        border-radius: 50%;
+        border: 1px solid rgb(135, 108, 153);
     }
 }
 .user {
