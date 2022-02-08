@@ -1,6 +1,8 @@
 import React from "react";
 import s from "./User.module.scss";
 import Preloader from "./../../common/Preloader/Preloader";
+import userAva from "./../../../assets/images/ava.png";
+import backgroundAva from "./../../../assets/images/background.jpg";
 
 const User = (props) => {
 
@@ -11,11 +13,11 @@ const User = (props) => {
   return (
     <div className={s.user}>
       <div className={s.user__image}>
-        <img className={s.user__image} src="background.jpg" />
+        <img className={s.user__image} src={backgroundAva} />
       </div>
       <div className={s.user__description}>
         <div className={s.user__ava}>
-          <img src={props.profile.photos.large} />
+          <img src={props.profile.photos.large != null ? props.profile.photos.large : userAva} />
         </div>
         <div className={s.user__info}>
           <div className={s.info__name}>{props.profile.fullName}</div>

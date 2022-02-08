@@ -42,11 +42,10 @@
     .user__unfollow {
         width: 100%;
         border-radius: 5px;
-        padding: 5px;
+        padding: 10px;
         text-align: center;
         background-color: gray;
         color: rgba(255, 255, 255, 0.6);
-        margin: 5px;
         &:active {
             transform: scale(0.95);
         }
@@ -54,11 +53,10 @@
     .user__follow {
         width: 100%;
         border-radius: 5px;
-        padding: 5px;
+        padding: 10px;
         text-align: center;
         background-color: rgb(135, 108, 153);
         color: rgba(255, 255, 255, 0.6);
-        margin: 5px;
         &:active {
             transform: scale(0.95);
         }

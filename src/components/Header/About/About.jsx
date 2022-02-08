@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className={s.about__container}>
       <h1>Social Network</h1>
-      <i>Андрей Костюк, Junior Web-Developer</i>
+      <i>Андрей Костюк, Junior Frontend-Developer</i>
     </div>
   );
 };

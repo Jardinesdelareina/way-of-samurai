@@ -7,9 +7,13 @@ const Header = (props) => {
     <div className={s.header}>
       <NavLink to={"/"} className={s.header__logo}></NavLink>
       <div className={s.header__menu}>
-          <NavLink to={"/about"} className={s.header__link}>
-            О сайте
-          </NavLink>
+        <NavLink to={"/about"} className={s.header__link}>
+          О сайте
+        </NavLink>
+        {props.isAuth ? props.login :
+          <NavLink to={"/login"} className={s.header__link}>
+            Вход
+          </NavLink>} 
       </div>
     </div>
   );
