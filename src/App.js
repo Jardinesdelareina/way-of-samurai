@@ -16,7 +16,7 @@ const App = (props) => {
       <main className="wrapper__content">
         <Routes>
           <Route
-            path="/profile/:id"
+            path="/profile/:userId"
             element={<ProfileContainer />}
           />
           <Route
