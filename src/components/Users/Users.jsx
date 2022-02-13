@@ -44,24 +44,9 @@ const Users = (props) => {
               </NavLink>
               <div>
                 {u.followed
-                  
-                  ? (<button className={s.user__unfollow} onClick={() => {
-                    usersAPI.unfollow(u.id)
-                      .then(response => {
-                        if (response.data.resultCode === 0) {
-                          props.unfollow(u.id);
-                        }
-                      });
-                  }}>Отписаться</button>)
-
-                  : (<button className={s.user__follow} onClick={() => {
-                    usersAPI.follow(u.id)
-                      .then(response => {
-                        if (response.data.resultCode === 0) {
-                          props.follow(u.id);
-                        }
-                      });
-                    }}>Подписаться</button>)}
+                  ? (<button className={s.user__unfollow} onClick={() => {props.unfollow(u.id)}}>Отписаться</button>)
+                  : (<button className={s.user__follow} onClick={() => {props.follow(u.id)}}>Подписаться</button>)
+                }
               </div>
             </div>
           ))}
