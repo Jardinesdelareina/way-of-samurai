@@ -11,8 +11,8 @@ class ProfileContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
     if (!userId) {
-      userId = 22343
-    };
+      userId = 22343;
+    }
       this.props.getUserProfile(userId);
   }
 
@@ -26,7 +26,7 @@ let mapStateToProps = (state) => ({
 });
 
 const ProfileMatch = (props) => {
-	let match = useMatch("/profile/:userId/");
+	let match = useMatch("/profile/:userId");
 	return (
 		<ProfileContainer {...props} match={match} />
 	)

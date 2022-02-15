@@ -15,4 +15,4 @@ let mapStateToProps = (state) => ({
     dialogsPage: state.dialogsPage
 });
 
-export default compose(connect(mapStateToProps), withAuthRedirect)(DialogsContainer);
+export default compose( withAuthRedirect, connect(mapStateToProps))(DialogsContainer);

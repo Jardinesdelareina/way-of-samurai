@@ -12,9 +12,9 @@ const User = (props) => {
 
   return (
     <div className={s.user}>
-      <div className={s.user__image}>
+      {/* <div className={s.user__image}>
         <img className={s.user__image} src={backgroundAva} />
-      </div>
+      </div> */}
       <div className={s.user__description}>
         <div className={s.user__ava}>
           <img src={props.profile.photos.large != null ? props.profile.photos.large : userAva} />
