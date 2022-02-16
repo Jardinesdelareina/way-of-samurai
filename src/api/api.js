@@ -22,7 +22,7 @@ export const usersAPI = {
         return instanse.delete(`follow/${userId}`)
     },
     getProfile(userId) {
-        return instanse.get(`profile/` + userId)
+        return instanse.get(`profile/${userId}`)
     }
 }
 

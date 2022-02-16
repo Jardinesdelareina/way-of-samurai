@@ -9,10 +9,7 @@ import { useMatch } from "react-router-dom";
 class ProfileContainer extends React.Component {
 
   componentDidMount() {
-    let userId = this.props.match.params.userId;
-    if (!userId) {
-      userId = 22343;
-    }
+    let userId = this.props.match ? this.props.match.params.userId : 22343;
       this.props.getUserProfile(userId);
   }
 
