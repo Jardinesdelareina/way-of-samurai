@@ -3,6 +3,7 @@ import s from "./User.module.scss";
 import Preloader from "./../../common/Preloader/Preloader";
 import userAva from "./../../../assets/images/ava.png";
 import backgroundAva from "./../../../assets/images/background.jpg";
+import UserStatus from "./UserStatus";
 
 const User = (props) => {
 
@@ -26,7 +27,7 @@ const User = (props) => {
           <div className={s.info__github}>{props.profile.contacts.github}</div>
         </div>
         <div className={s.user__about}>
-          <i>{props.profile.aboutMe}</i>
+          <UserStatus status={"Hello"} /> 
         </div>
       </div>
     </div>
