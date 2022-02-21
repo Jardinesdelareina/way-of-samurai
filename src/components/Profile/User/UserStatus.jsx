@@ -2,30 +2,46 @@ import React from "react";
 import s from "./UserStatus.module.scss";
 
 class UserStatus extends React.Component {
+  
   state = {
-    editMode: true
+    editMode: false,
+    status: this.props.status
   }
 
-  activateEditMode() {
+  activateEditMode = () => {
     this.setState({
       editMode: true
     })
   }
-  deactivateEditMode() {
+  deactivateEditMode = () => {
     this.setState({
       editMode: false
     })
+    this.props.updateStatus(this.state.status);
   }
 
+  onStatusChange = (e) => {
+    this.setState({
+      status: e.currentTarget.value 
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.status !== this.props.status) {
+      this.setState({
+        status: this.props.status
+      })
+    }
+  }
   render() {
     return (
       <div className={s.status}>
         {!this.state.editMode &&
-          <div className={s.status__text} onDoubleClick={this.activateEditMode.bind(this)}>{this.props.status}</div>
+          <div className={s.status__text} onDoubleClick={this.activateEditMode}>{this.props.status || "Статус"}</div>
         }
         {this.state.editMode &&
           <div className={s.status__input}>
-            <input autoFocus={true} onBlur={this.deactivateEditMode.bind(this)} value={this.props.status} />
+            <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status} />
           </div>
         }
       </div>

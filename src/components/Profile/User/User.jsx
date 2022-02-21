@@ -27,7 +27,7 @@ const User = (props) => {
           <div className={s.info__github}>{props.profile.contacts.github}</div>
         </div>
         <div className={s.user__about}>
-          <UserStatus status={"Hello"} /> 
+          <UserStatus status={props.status} updateUserStatus={props.updateUserStatus} /> 
         </div>
       </div>
     </div>
