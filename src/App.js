@@ -16,26 +16,11 @@ const App = (props) => {
       <Nav />
       <main className="wrapper__content">
         <Routes>
-          <Route
-            path="/profile/*"
-            element={<ProfileContainer />}
-          />
-          <Route
-            path="/dialogs/*"
-            element={<DialogsContainer />}
-          />
-          <Route
-            path="/users"
-            element={<UsersContainer />}
-          />
-           <Route
-            path="/login"
-            element={<Login />}
-          />
-          <Route
-            path="/about"
-            element={<About />}
-          />
+          <Route path="/profile/*" element={<ProfileContainer />} />
+          <Route path="/dialogs/*" element={<DialogsContainer />} />
+          <Route path="/users" element={<UsersContainer />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </main>
     </div>
