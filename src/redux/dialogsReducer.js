@@ -1,5 +1,4 @@
 const ADD_MESSAGE = "ADD_MESSAGE";
-const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY";
 
 let initialState = {
   nameData: [
@@ -18,32 +17,21 @@ let initialState = {
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam numquam, quaerat eos reiciendis qui laudantium nihil? Cupiditate voluptatem ex, aliquam dolores accusamus, amet, sint commodi fuga consequuntur ad officiis eum.",
     },
   ],
-  newMessageText: "",
 };
 
 let dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
-      let text = state.newMessageText;
+      let body = action.newMessageBody;
       return {
         ...state,
-        newMessageText: '',
-        messageData: [...state.messageData, { id: 4, message: text }]
-      };
-    case UPDATE_NEW_MESSAGE_BODY:
-      return {
-        ...state,
-        newMessageText: action.newCreateMessage
+        messageData: [...state.messageData, { id: 4, message: body }]
       };
     default:
       return state;
   }
 };
 
-export const addMessage = () => ({ type: ADD_MESSAGE });
-export const updateNewMessageBody = (body) => ({
-  type: UPDATE_NEW_MESSAGE_BODY,
-  newCreateMessage: body,
-});
+export const addMessage = (newMessageBody) => ({ type: ADD_MESSAGE, newMessageBody });
 
 export default dialogsReducer;

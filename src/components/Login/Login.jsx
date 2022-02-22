@@ -4,9 +4,9 @@ import s from "./Login.module.scss";
 
 const LoginForm = (props) => {
     return (
-        <div className={s.login} onSubmit={props.handleSubmit}>
+        <div className={s.login}>
             <p>Авторизация</p>
-            <form className={s.login__form}>
+            <form className={s.login__form} onSubmit={props.handleSubmit}>
                 <Field placeholder={"Логин"} name={"login"} component={"input"} />
                 <Field placeholder={"Пароль"} name={"password"} component={"input"}/>
                 <div className={s.login__checkbox}>
