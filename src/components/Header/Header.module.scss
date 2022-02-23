@@ -1,7 +1,19 @@
+%button {
+    border: 2px solid rgb(135, 108, 153);
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 5px;
+    margin: 5px;
+    color: rgb(135, 108, 153);
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
 .header {
     grid-area: h;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 1%;
     box-shadow: 0 0 3px rgba(135, 108, 153, 0.4);
@@ -13,18 +25,21 @@
         border-radius: 50%;
         background-color: rgb(135, 108, 153);
     }
+    .header__link {
+        font-size: 20px;
+        color: rgb(135, 108, 153);
+        font-weight: 700;
+    }
     .header__menu {
         display: flex;
         align-items: center;
-        .header__link {
-            padding: 10px;
-            text-decoration: none;
-            color: rgb(135, 108, 153);
-            font-size: 20px;
-            font-weight: 700;
-        }
+        justify-content: space-between;
         .header__login {
             color: gray;
+            margin: 10px;
+        }
+        .header__button {
+            @extend %button;
         }
     }
 }
