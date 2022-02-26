@@ -1,52 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./UserStatus.module.scss";
 
-class UserStatus extends React.Component {
-  
-  state = {
-    editMode: false,
-    status: this.props.status
+const UserStatus = (props) => {
+
+  let [editMode, setEditMode] = useState(false);
+  let [status, setStatus] = useState(props.status);
+
+  const activateEditMode = () => {
+    setEditMode(true);
   }
 
-  activateEditMode = () => {
-    this.setState({
-      editMode: true
-    })
-  }
-  deactivateEditMode = () => {
-    this.setState({
-      editMode: false
-    })
-    this.props.updateStatus(this.state.status);
+  const deactivateEditMode = () => {
+    setEditMode(false);
+    props.updateStatus(status);
   }
 
-  onStatusChange = (e) => {
-    this.setState({
-      status: e.currentTarget.value 
-    });
+  const onStatusChange = (e) => {
+    setStatus(e.currentTarget.value);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.status !== this.props.status) {
-      this.setState({
-        status: this.props.status
-      })
-    }
-  }
-  render() {
-    return (
-      <div className={s.status}>
-        {!this.state.editMode &&
-          <div className={s.status__text} onDoubleClick={this.activateEditMode}>{this.props.status || "Статус"}</div>
+  return (
+    <div className={s.status}>
+        {!editMode &&
+          <div className={s.status__text} onDoubleClick={activateEditMode}>{props.status || "Статус"}</div>
         }
-        {this.state.editMode &&
+        {editMode &&
           <div className={s.status__input}>
-            <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status} />
+            <input onChange={onStatusChange} onBlur={deactivateEditMode} autoFocus={true} value={status} />
           </div>
         }
       </div>
-    );
-  }
+  )
 }
 
 export default UserStatus;

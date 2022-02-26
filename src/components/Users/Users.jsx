@@ -2,7 +2,6 @@ import React from "react";
 import s from "./Users.module.scss";
 import userAva from "./../../../src/assets/images/ava.png";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../api/api";
 
 const Users = (props) => {
 

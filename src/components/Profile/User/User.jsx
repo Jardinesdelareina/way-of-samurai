@@ -2,7 +2,7 @@ import React from "react";
 import s from "./User.module.scss";
 import Preloader from "./../../common/Preloader/Preloader";
 import userAva from "./../../../assets/images/ava.png";
-import backgroundAva from "./../../../assets/images/background.jpg";
+/* import backgroundAva from "./../../../assets/images/background.jpg"; */
 import UserStatus from "./UserStatus";
 
 const User = (props) => {
