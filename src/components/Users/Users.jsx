@@ -31,7 +31,7 @@ const Users = (props) => {
           })}
         </div>
         <div>
-          {props.users.map((u) => (
+          {[...props.users].reverse().map((u) => (
             <div key={u.id} className={s.user}>
               <NavLink to={"/profile/" + u.id}>
                 <div className={s.user__ava}>

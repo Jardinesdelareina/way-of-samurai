@@ -15,13 +15,13 @@ const PostItem = (props) => {
   );
 };
 
-const Post = (props) => {
+const Post = React.memo(props => {
 
   let addNewPost = (values) => {
     props.addPost(values.newPostText)
   }
   
-  let elementPost = props.myPost.map((p) => (
+  let elementPost = [...props.myPost].reverse().map((p) => (
     <PostItem key={p.id} message={p.message} />
   ));
   return (
@@ -30,7 +30,7 @@ const Post = (props) => {
       <div>{elementPost}</div>
     </div>
   );
-};
+});
 
 const AddPostForm = (props) => {
   return (
