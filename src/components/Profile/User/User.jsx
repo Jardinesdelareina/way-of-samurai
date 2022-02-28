@@ -2,7 +2,6 @@ import React from "react";
 import s from "./User.module.scss";
 import Preloader from "./../../common/Preloader/Preloader";
 import userAva from "./../../../assets/images/ava.png";
-/* import backgroundAva from "./../../../assets/images/background.jpg"; */
 import UserStatus from "./UserStatus";
 
 const User = ({ profile, status, updateStatus}) => {
@@ -13,9 +12,6 @@ const User = ({ profile, status, updateStatus}) => {
 
   return (
     <div className={s.user}>
-      {/* <div className={s.user__image}>
-        <img className={s.user__image} src={backgroundAva} />
-      </div> */}
       <div className={s.user__description}>
         <div className={s.user__ava}>
           <img src={profile.photos.large != null ? profile.photos.large : userAva} />
@@ -27,7 +23,7 @@ const User = ({ profile, status, updateStatus}) => {
           <div className={s.info__github}>{profile.contacts.github}</div>
         </div>
         <div className={s.user__about}>
-          <UserStatus status={status} updateUserStatus={updateStatus} /> 
+          <UserStatus status={status} updateStatus={updateStatus} /> 
         </div>
       </div>
     </div>
