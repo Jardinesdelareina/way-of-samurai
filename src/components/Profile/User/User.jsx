@@ -5,9 +5,9 @@ import userAva from "./../../../assets/images/ava.png";
 /* import backgroundAva from "./../../../assets/images/background.jpg"; */
 import UserStatus from "./UserStatus";
 
-const User = (props) => {
+const User = ({ profile, status, updateStatus}) => {
 
-  if (!props.profile) {
+  if (!profile) {
     return (<Preloader />)
   }
 
@@ -18,16 +18,16 @@ const User = (props) => {
       </div> */}
       <div className={s.user__description}>
         <div className={s.user__ava}>
-          <img src={props.profile.photos.large != null ? props.profile.photos.large : userAva} />
+          <img src={profile.photos.large != null ? profile.photos.large : userAva} />
         </div>
         <div className={s.user__info}>
-          <div className={s.info__name}>{props.profile.fullName}</div>
-          <div className={s.info__twitter}>{props.profile.contacts.twitter}</div>
-          <div className={s.info__instagram}>{props.profile.contacts.instagram}</div>
-          <div className={s.info__github}>{props.profile.contacts.github}</div>
+          <div className={s.info__name}>{profile.fullName}</div>
+          <div className={s.info__twitter}>{profile.contacts.twitter}</div>
+          <div className={s.info__instagram}>{profile.contacts.instagram}</div>
+          <div className={s.info__github}>{profile.contacts.github}</div>
         </div>
         <div className={s.user__about}>
-          <UserStatus status={props.status} updateUserStatus={props.updateUserStatus} /> 
+          <UserStatus status={status} updateUserStatus={updateStatus} /> 
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const Header = (props) => {
   return (
     <div className={s.header}>
-      <NavLink to={"/"} className={s.header__logo}></NavLink>
+      <div className={s.header__logo}></div>
       <NavLink to={"/about"} className={s.header__link}>Social Network</NavLink>
       <div className={s.header__menu}>
         {props.isAuth

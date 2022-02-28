@@ -1,57 +1,27 @@
 import React from "react";
-import s from "./Users.module.scss";
-import userAva from "./../../../src/assets/images/ava.png";
-import { NavLink } from "react-router-dom";
+import Paginator from "../common/Paginator/Paginator";
+import User from "./User";
 
 const Users = (props) => {
-
-    let pagesCount = Math.ceil (props.totalUsersCount / props.pageSize);
-
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-      if (pages.length < 12) {
-        pages.push(i);
-      }
-    }
-
-    return (
+  return (
+    <div>
+      <Paginator
+        currentPage={props.currentPage}
+        onPageChanged={props.onPageChanged}
+        totalUsersCount={props.totalUsersCount}
+        pageSize={props.pageSize}
+      />
       <div>
-        <div className={s.currentPage}>
-          {pages.map((page) => {
-            return (
-              <span
-                className={props.currentPage === page && s.selectedPage}
-                onClick={() => {
-                  props.onPageChanged(page);
-                }}
-              >
-                {page}
-              </span>
-            );
-          })}
-        </div>
-        <div>
-          {[...props.users].reverse().map((u) => (
-            <div key={u.id} className={s.user}>
-              <NavLink to={"/profile/" + u.id}>
-                <div className={s.user__ava}>
-                  <img src={u.photos.large != null ? u.photos.large : userAva} />
-                </div>
-              </NavLink>
-              <NavLink to={"/profile/" + u.id}>
-                <div className={s.user__name}>{u.name}</div>
-              </NavLink>
-              <div>
-                {u.followed
-                  ? (<button className={s.user__unfollow} onClick={() => {props.unfollow(u.id)}}>Отписаться</button>)
-                  : (<button className={s.user__follow} onClick={() => {props.follow(u.id)}}>Подписаться</button>)
-                }
-              </div>
-            </div>
-          ))}
-        </div>
+        {props.users.map((u) => (
+          <User
+            user={u}
+            key={u.id}
+            follow={props.follow}
+            unfollow={props.unfollow} />
+        ))}
       </div>
-    );
+    </div>
+  );
 };
 
 export default Users;

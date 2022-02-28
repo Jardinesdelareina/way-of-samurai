@@ -1,0 +1,41 @@
+%follow {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    &:active {
+        transform: scale(0.95);
+    }
+}
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px;
+    max-width: 40%;
+    &:hover {
+        box-shadow: 0 0 20px rgba(128, 128, 128, 0.5);
+    }
+    .user__ava img {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        text-align: center;
+    }
+    .user__name {
+        font-size: 20px;
+        color: rgb(135, 108, 153);
+        text-align: center;
+    }
+    .user__unfollow {
+        @extend %follow;
+        background-color: gray;
+    }
+    .user__follow {
+        @extend %follow;
+        background-color: rgb(135, 108, 153);
+    }
+}

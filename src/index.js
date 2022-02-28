@@ -3,7 +3,16 @@ import ReactDOM from "react-dom";
 import "./style/index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import store from "./redux/reduxStore";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.render(<App />,document.getElementById("root")
+ReactDOM.render(
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
+  document.getElementById("root")
 );
 reportWebVitals();

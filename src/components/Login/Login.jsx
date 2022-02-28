@@ -3,7 +3,6 @@ import { Field, reduxForm } from "redux-form";
 import { maxLengthCreator, minLengthCreator, required } from "../../utils/validators/validators";
 import { Input } from "../common/FormsControls/FormsControls";
 import s from "./Login.module.scss";
-import error from "./../common/FormsControls/FormsControls.module.scss";
 import { connect } from "react-redux";
 import { login } from "../../redux/authReducer";
 import { Navigate } from "react-router-dom";
@@ -11,21 +10,33 @@ import { Navigate } from "react-router-dom";
 const maxLength = maxLengthCreator(40);
 const minLength = minLengthCreator(5);
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit, error}) => {
     return (
-        <div className={s.login}>
-            <p>Авторизация</p>
-            <form className={s.login__form} onSubmit={props.handleSubmit}>
-                <Field placeholder={"email"} name={"email"} component={Input} validate={[required, maxLength, minLength]}/>
-                <Field placeholder={"Пароль"} name={"password"} type={"password"} component={Input} validate={[required, maxLength, minLength]}/>
-                <div className={s.login__checkbox}>
-                    <Field type={"checkbox"} name={"rememberMe"} component={Input} /> Запомнить
-                </div>
-                {props.error && <div className={error.login__error}>{props.error}</div>}
-                <button type={"submit"}>Войти</button>
-            </form>
-        </div>
-    )
+      <div className={s.login}>
+        <p>Авторизация</p>
+        <form className={s.login__form} onSubmit={handleSubmit}>
+          <Field
+            placeholder={"email"}
+            name={"email"}
+            component={Input}
+            validate={[required, maxLength, minLength]}
+          />
+          <Field
+            placeholder={"Пароль"}
+            name={"password"}
+            type={"password"}
+            component={Input}
+            validate={[required, maxLength, minLength]}
+          />
+          <div className={s.login__checkbox}>
+            <Field type={"checkbox"} name={"rememberMe"} component={Input} />{" "}
+            Запомнить
+          </div>
+          {error && <div className={error.login__error}>{error}</div>}
+          <button type={"submit"}>Войти</button>
+        </form>
+      </div>
+    );
 }
 
 const LoginReduxForm = reduxForm({form: "login"})(LoginForm)
