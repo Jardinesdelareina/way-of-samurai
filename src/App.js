@@ -3,7 +3,7 @@ import "./style/App.scss";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import About from "./components/Header/About/About";
 import Nav from "./components/Nav/Nav";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import Login from "./components/Login/Login";
 import { connect, Provider } from "react-redux";
@@ -53,11 +53,11 @@ let AppContainer = compose(connect(mapStateToProps, { initApp }))(App);
 
 const SocialNetworkApp = (props) => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
