@@ -29,7 +29,7 @@ const Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, porti
                 onPageChanged(p);
               }}
             >
-              {p}
+              {" " + p + " "}
             </span>
           );
         })}
