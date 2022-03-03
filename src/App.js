@@ -27,9 +27,9 @@ class App extends React.Component {
     }
     return (
       <div className="wrapper">
-        <HeaderContainer />
         <Nav />
         <main className="wrapper__content">
+          <HeaderContainer />
           <Suspense fallback={<Preloader />}>
             <Routes>
               <Route path="/profile/*" element={<ProfileContainer />} />

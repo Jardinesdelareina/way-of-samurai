@@ -3,8 +3,9 @@ import { Field, reduxForm } from "redux-form";
 import s from "./Post.module.scss";
 import { maxLengthCreator, required } from "../../../utils/validators/validators";
 import { Textarea } from "../../common/FormsControls/FormsControls";
+import userAva from "./../../../assets/images/ava.png";
 
-const maxLength = maxLengthCreator(10);
+const maxLength = maxLengthCreator(2000);
 
 const PostItem = (props) => {
   return (
