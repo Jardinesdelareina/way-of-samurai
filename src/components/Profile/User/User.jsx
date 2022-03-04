@@ -4,7 +4,7 @@ import Preloader from "./../../common/Preloader/Preloader";
 import userAva from "./../../../assets/images/ava.png";
 import UserStatus from "./UserStatus";
 
-const User = ({ profile, status, updateStatus}) => {
+const User = ({ profile, status, updateStatus, isOwner}) => {
 
   if (!profile) {
     return (<Preloader />)
