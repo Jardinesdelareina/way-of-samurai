@@ -1,10 +1,24 @@
+%button {
+    border: 2px solid rgb(135, 108, 153);
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 5px;
+    margin: 5px;
+    color: rgb(135, 108, 153);
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
 .header {
+    grid-area: h;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1vh;
+    padding: 1%;
     box-shadow: 0 0 3px rgba(135, 108, 153, 0.4);
-    background-color:rgba(135, 108, 153, 0.2);
+    background-color:rgba(135, 108, 153, 0.4);
+    border-radius: 10px;
     .header__logo {
         width: 50px;
         height: 50px;
@@ -16,35 +30,16 @@
         color: rgb(135, 108, 153);
         font-weight: 700;
     }
-    .header__login {
-        color: gray;
-        margin: 10px;
-        img {
-            height: 30px;
-            width: 30px;
-            border-radius: 50%;
+    .header__menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .header__login {
+            color: gray;
+            margin: 10px;
         }
-    }
-    button {
-        border: 2px solid rgb(135, 108, 153);
-        border-radius: 7px;
-        font-size: 16px;
-        padding: 5px;
-        margin: 5px;
-        color: rgb(135, 108, 153);
-        &:active {
-            transform: scale(0.95);
-        }
-    }
-    img {
-        width: 60px;
-        height: 60px;
-        border-radius: 10px;
-        margin: 10px;
-        padding: 10px;
-        background-color: rgba(156, 83, 204, 0.5);
-        &:hover {
-            transform: scale(1.05);
+        .header__button {
+            @extend %button;
         }
     }
 }

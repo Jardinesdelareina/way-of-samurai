@@ -3,21 +3,14 @@ import { authAPI } from "../api/api";
 
 const SET_AUTH_USER_DATA = "social_network/auth/SET_AUTH_USER_DATA";
 
-export type InitialStateType = {
-  userId: number | null,
-  login: string | null,
-  email: string | null,
-  isAuth: boolean,
-};
-
-let initialState: InitialStateType = {
+let initialState = {
   userId: null,
   login: null,
   email: null,
   isAuth: false,
 };
 
-const authReducer = (state = initialState, action: any): InitialStateType => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_AUTH_USER_DATA:
       return {
@@ -29,24 +22,9 @@ const authReducer = (state = initialState, action: any): InitialStateType => {
   }
 };
 
-type SetAuthUserDataActionPayDataType = {
-  userId: number | null,
-  email: string | null,
-  login: string | null,
-  isAuth: boolean
-}
+export const setAuthUserData = (id, login, email, isAuth) => ({ type: SET_AUTH_USER_DATA, data: { id, login, email, isAuth } })
 
-type SetAuthUserDataActionType = {
-  type: typeof SET_AUTH_USER_DATA,
-  data: SetAuthUserDataActionPayDataType
-}
-
-export const setAuthUserData = (userId: number | null, email: string | null, login: string | null, isAuth: boolean): SetAuthUserDataActionType => ({
-  type: SET_AUTH_USER_DATA,
-  data: { userId, email, login, isAuth }
-})
-
-export const getAuthUserData = () => async (dispatch: any) => {
+export const getAuthUserData = () => async (dispatch) => {
   let response = await authAPI.me();
   if (response.data.resultCode === 0) {
     let { id, login, email } = response.data.data;
@@ -54,7 +32,7 @@ export const getAuthUserData = () => async (dispatch: any) => {
   }
 };
 
-export const login = (email: string, password: string, rememberMe: boolean) => async (dispatch: any) => {
+export const login = (email, password, rememberMe) => async (dispatch) => {
   let response = await authAPI.login(email, password, rememberMe);
   if (response.data.resultCode === 0) {
     dispatch(getAuthUserData());
@@ -67,7 +45,7 @@ export const login = (email: string, password: string, rememberMe: boolean) => a
   }
 };
 
-export const logout = () => async (dispatch: any) => {
+export const logout = () => async (dispatch) => {
   let response = await authAPI.logout();
   if (response.data.resultCode === 0) {
     dispatch(setAuthUserData(null, null, null, false));

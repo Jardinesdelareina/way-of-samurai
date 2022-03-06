@@ -8,7 +8,7 @@ const User = ({ user, follow, unfollow }) => {
     <div className={s.user}>
       <NavLink to={"/profile/" + user.id}>
         <div className={s.user__ava}>
-          <img src={user.photos.large || userAva} />
+          <img src={user.photos.large != null ? user.photos.large : userAva} />
         </div>
       </NavLink>
       <NavLink to={"/profile/" + user.id}>
