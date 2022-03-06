@@ -4,7 +4,7 @@ import Preloader from "./../../common/Preloader/Preloader";
 import userAva from "./../../../assets/images/ava.png";
 import UserStatus from "./UserStatus";
 
-const User = ({ profile, status, updateStatus}) => {
+const User = ({ profile, status, updateStatus, isOwner}) => {
 
   if (!profile) {
     return (<Preloader />)
@@ -14,7 +14,7 @@ const User = ({ profile, status, updateStatus}) => {
     <div className={s.user}>
       <div className={s.user__description}>
         <div className={s.user__ava}>
-          <img src={profile.photos.large != null ? profile.photos.large : userAva} />
+          <img src={profile.photos.large || userAva} />
         </div>
         <div className={s.user__info}>
           <div className={s.info__name}>{profile.fullName}</div>
