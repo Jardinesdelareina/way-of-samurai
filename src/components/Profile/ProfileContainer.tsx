@@ -1,12 +1,21 @@
-import React from "react";
-import Profile from "./Profile";
-import { connect } from "react-redux";
-import { getUserProfile, getStatus, updateStatus } from "./../../redux/profileReducer";
-import { withAuthRedirect } from "../../hoc/withAuthRedirect";
-import { compose } from "redux";
-import { useMatch } from "react-router-dom";
+import React from "react"
+import { compose } from "redux"
+import { useMatch } from "react-router-dom"
+import { connect } from "react-redux"
 
-class ProfileContainer extends React.Component {
+import { getUserProfile, getStatus, updateStatus } from "../../redux/profileReducer"
+import { withAuthRedirect } from "../../hoc/withAuthRedirect"
+import Profile from "./Profile"
+
+type MapPropsType = ReturnType<typeof mapStateToProps>
+
+type DispatchPropsType = {
+  getUserProfile: (userId: number) => void
+  getStatus: (userId: number) => void
+  updateStatus: (status: string) => void
+}
+
+class ProfileContainer extends React.Component<PropsType> {
   componentDidMount() {
     let userId = this.props.match
       ? this.props.match.params.userId

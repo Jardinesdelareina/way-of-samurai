@@ -1,20 +1,26 @@
-import React from "react";
-import s from "./User.module.scss";
-import Preloader from "./../../common/Preloader/Preloader";
-import userAva from "./../../../assets/images/ava.png";
-import UserStatus from "./UserStatus";
+import React from "react"
 
-const User = ({ profile, status, updateStatus, isOwner}) => {
+import s from "./User.module.scss"
+import { ProfileType } from "../../../types/types"
+import Preloader from "../../common/Preloader/Preloader"
+import userAva from "./../../../assets/images/ava.png"
+import UserStatus from "./UserStatus"
 
+type PropsType = {
+  profile: ProfileType | null,
+  status: string,
+  updateStatus: (status: string) => void
+}
+
+const User: React.FC<PropsType> = ({ profile, status, updateStatus}) => {
   if (!profile) {
     return (<Preloader />)
   }
-
   return (
     <div className={s.user}>
       <div className={s.user__description}>
         <div className={s.user__ava}>
-          <img src={profile.photos.large || userAva} />
+          <img src={profile.photos.large || userAva} alt="" />
         </div>
         <div className={s.user__info}>
           <div className={s.info__name}>{profile.fullName}</div>
@@ -27,7 +33,7 @@ const User = ({ profile, status, updateStatus, isOwner}) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default User;
+export default User
