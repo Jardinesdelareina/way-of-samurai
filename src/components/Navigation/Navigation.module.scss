@@ -1,0 +1,33 @@
+.navigation {
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(135, 108, 153, 0.4);
+    background-color: rgba(135, 108, 153, 0.2);
+    display: flex;
+    flex-direction: column;
+    img {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        background-color: rgba(156, 83, 204, 0.5);
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    .navigation__login {
+        color: gray;
+        font-size: 12px;
+    }
+    button {
+        border: 2px solid rgb(135, 108, 153);
+        border-radius: 7px;
+        font-size: 16px;
+        padding: 5px;
+        margin: 5px;
+        color: rgb(135, 108, 153);
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}

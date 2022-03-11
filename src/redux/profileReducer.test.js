@@ -1,4 +1,4 @@
-import profileReducer, { addPost, deletePost } from "./profileReducer";
+import profileReducer, { addPost, deletePost } from './profileReducer'
 
 let state = {
     myPost: [
@@ -15,38 +15,38 @@ let state = {
         message: "Lorem, ipsum",
       },
     ],
-};
+}
 
 test('Количество постов', () => {
     // test data
-    let action = addPost("Новый пост");
+    let action = addPost("Новый пост")
 
     // action
-    let newState = profileReducer(state, action);
+    let newState = profileReducer(state, action)
 
     // expectation
-    expect(newState.myPost.length).toBe(4);
-});
+    expect(newState.myPost.length).toBe(4)
+})
   
 test('Инициализация поста', () => {
     // test data
-    let action = addPost("Новый пост");
+    let action = addPost("Новый пост")
 
     // action
-    let newState = profileReducer(state, action);
+    let newState = profileReducer(state, action)
 
     // expectation
-    expect(newState.myPost[3].message).toBe("Новый пост");
-});
+    expect(newState.myPost[3].message).toBe("Новый пост")
+})
   
   
 test('Удаление поста', () => {
     // test data
-    let action = deletePost(1);
+    let action = deletePost(1)
 
     // action
-    let newState = profileReducer(state, action);
+    let newState = profileReducer(state, action)
 
     // expectation
-    expect(newState.myPost.length).toBe(2);
-  });
+    expect(newState.myPost.length).toBe(2)
+  })
