@@ -10,8 +10,9 @@ import Preloader from './components/common/Preloader/Preloader'
 import NavigationContainer from './components/Navigation/NavigationContainer'
 
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'))
-const DialogsContainer = lazy(() => import('./components/Dialogs/DialogsContainer'))
+const MessagesContainer = lazy(() => import('./components/Messages/MessagesContainer'))
 const UsersContainer = lazy(() => import('./components/Users/UsersContainer'))
+const NotebookContainer = lazy(() => import('./components/Notebook/NotebookContainer'))
 
 class App extends React.Component {
 
@@ -32,8 +33,9 @@ class App extends React.Component {
           <Suspense fallback={<Preloader />}>
             <Routes>
               <Route path="/profile/*" element={<ProfileContainer />} />
-              <Route path="/dialogs/*" element={<DialogsContainer />} />
+              <Route path="/messages" element={<MessagesContainer />} />
               <Route path="/users" element={<UsersContainer />} />
+              <Route path="/notebook" element={<NotebookContainer />} />
               <Route path="/login" element={<Login />} />
             </Routes>
           </Suspense>
@@ -44,12 +46,12 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  init: state.app.init,
+  init: state.app.init
 })
 
 let AppContainer = compose(connect(mapStateToProps, { initApp }))(App)
 
-const SocialNetworkApp = (props) => {
+const SocialNetworkApp = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>

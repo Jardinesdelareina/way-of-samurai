@@ -1,6 +1,8 @@
-import { Field, reduxForm } from 'redux-form'
-import { maxLengthCreator, required } from './../../../utils/validators/validators'
-import { Textarea } from './../../common/FormsControls/FormsControls'
+import React from 'react'
+import { reduxForm } from 'redux-form'
+import { Field } from 'redux-form'
+import { maxLengthCreator, required } from '../../utils/validators/validators'
+import { Textarea } from './../common/FormsControls/FormsControls'
 import s from './Messages.module.scss'
 
 const maxLength = maxLengthCreator(100)
@@ -16,7 +18,7 @@ const MessageItem = (props) => {
   )
 }
 
-const Messages = (props) => {
+const Messages = React.memo(props => {
 
   let addNewMessage = (values) => {
     props.addMessage(values.newMessageBody)
@@ -32,7 +34,7 @@ const Messages = (props) => {
       <AddMessageReduxForm onSubmit={addNewMessage}/>
     </div>
   )
-}
+})
 
 const AddMessageForm = (props) => {
   return (
@@ -50,6 +52,6 @@ const AddMessageForm = (props) => {
   )
 }
 
-const AddMessageReduxForm = reduxForm({ form: "dialogs" })(AddMessageForm)
+const AddMessageReduxForm = reduxForm({ form: "messages" })(AddMessageForm)
 
 export default Messages

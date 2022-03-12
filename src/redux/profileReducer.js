@@ -31,6 +31,7 @@ let profileReducer = (state = initialState, action) => {
       let text = action.newPostText
       return {
         ...state,
+        newPostText: "",
         myPost: [...state.myPost, { id: 4, message: text }]
       }
     }
