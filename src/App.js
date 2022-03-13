@@ -29,19 +29,23 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <NavigationContainer />
-        <main className="wrapper__content">
-          <Suspense fallback={<Preloader />}>
-            <Routes>
-              <Route path="/profile/*" element={<ProfileContainer />} />
-              <Route path="/messages" element={<MessagesContainer />} />
-              <Route path="/users" element={<UsersContainer />} />
-              <Route path="/notebook" element={<NotebookContainer />} />
-              <Route path="/login" element={<Login />} />
-            </Routes>
-          </Suspense>
-        </main>
+        <div className="wrapper__content">
+          <header>Social Network</header>
+          <main>
+            <Suspense fallback={<Preloader />}>
+              <Routes>
+                <Route path="/profile/*" element={<ProfileContainer />} />
+                <Route path="/messages" element={<MessagesContainer />} />
+                <Route path="/users" element={<UsersContainer />} />
+                <Route path="/notebook" element={<NotebookContainer />} />
+                <Route path="/login" element={<Login />} />
+              </Routes>
+            </Suspense>
+          </main>
+          <footer>Social Network ©2022 Created by fueros</footer>
+        </div>
       </div>
-    )
+    );
   }
 }
 

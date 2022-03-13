@@ -2,14 +2,29 @@
 
 .wrapper {
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    overflow: hidden;
     margin: 0 auto;
     display: flex;
-    height: 100vh;
     .wrapper__content {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
         margin: 0 auto;
         align-items: center;
-        background-color: rgba(0, 172, 220, 0.03)
+        background-color: rgba(0, 172, 220, 0.03);
+        header {
+            padding: 10px;
+            color: gray;
+            font-size: 50px;
+            font-weight: 800;
+        }
+        main {
+            flex: 1 1 auto;
+            width: 100%;
+        }
+        footer {
+            padding: 5px;
+            color: gray;
+        }
     }
 }
