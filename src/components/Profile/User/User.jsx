@@ -1,13 +1,8 @@
 import s from './User.module.scss'
-import Preloader from './../../common/Preloader/Preloader'
 import Ava from './../../../assets/images/Ava.png'
 import UserStatus from './UserStatus'
 
 const User = ({ profile, status, updateStatus}) => {
-
-  if (!profile) {
-    return (<Preloader />)
-  }
 
   return (
     <div className={s.user}>

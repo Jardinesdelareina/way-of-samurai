@@ -13,6 +13,7 @@ const ProfileContainer = lazy(() => import('./components/Profile/ProfileContaine
 const MessagesContainer = lazy(() => import('./components/Messages/MessagesContainer'))
 const UsersContainer = lazy(() => import('./components/Users/UsersContainer'))
 const NotebookContainer = lazy(() => import('./components/Notebook/NotebookContainer'))
+const CalculatorContainer = lazy(() => import('./components/Calculator/CalculatorContainer'))
 
 class App extends React.Component {
 
@@ -38,6 +39,7 @@ class App extends React.Component {
                 <Route path="/messages" element={<MessagesContainer />} />
                 <Route path="/users" element={<UsersContainer />} />
                 <Route path="/notebook" element={<NotebookContainer />} />
+                <Route path="/calculator" element={<CalculatorContainer />} />
                 <Route path="/login" element={<Login />} />
               </Routes>
             </Suspense>

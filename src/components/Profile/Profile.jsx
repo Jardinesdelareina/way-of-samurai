@@ -1,8 +1,14 @@
 import s from './Profile.module.scss'
 import User from './User/User'
 import PostContainer from './Post/PostContainer'
+import Preloader from '../common/Preloader/Preloader'
 
 const Profile = (props) => {
+
+  if (!props.profile) {
+    return (<Preloader />)
+  }
+
   return (
     <div className={s.profile}>
       <User
