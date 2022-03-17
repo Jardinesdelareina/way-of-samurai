@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import { compose } from 'redux'
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom'
 import { connect, Provider } from 'react-redux'
 import store from './redux/reduxStore'
 import { initApp } from './redux/appReducer'
@@ -35,7 +35,9 @@ class App extends React.Component {
           <main>
             <Suspense fallback={<Preloader />}>
               <Routes>
-                <Route path="/profile/*" element={<ProfileContainer />} />
+                <Route path="/" element={<Navigate to="/profile" />} />
+                <Route path="/profile" element={<ProfileContainer />} />
+                <Route path="/profile/:userId" element={<ProfileContainer />} />
                 <Route path="/messages" element={<MessagesContainer />} />
                 <Route path="/users" element={<UsersContainer />} />
                 <Route path="/notebook" element={<NotebookContainer />} />
@@ -47,7 +49,7 @@ class App extends React.Component {
           <footer>Social Network ©2022 Created by fueros</footer>
         </div>
       </div>
-    );
+    )
   }
 }
 

@@ -11,12 +11,12 @@ const ButtonValues = [
 
 const Calculator = () => {
   let [calc, setCalc] = useState({
-    sign: "",
-    num: 0,
-    res: 0,
+    sign: "", // Выбранный знак
+    num: 0, // Введенное значение
+    res: 0, // Рассчитанное значение
   })
 
-  // Срабатывает тогда, когда какой-либо из цифровых символов прессуют
+  // Срабатывает тогда, когда нажимается какой-либо из цифровых символов
   const numClickHandler = (e) => {
     e.preventDefault()
     const value = e.target.innerHTML
@@ -168,3 +168,5 @@ const Button = ({ className, value, onClick }) => {
 }
 
 export default Calculator
+
+// https://bestprogrammer.ru/izuchenie/uchebnoe-posobie-po-react-sozdanie-prilozheniya-kalkulyatora-s-nulya

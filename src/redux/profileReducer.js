@@ -20,9 +20,8 @@ let initialState = {
       message: "Lorem, ipsum",
     },
   ],
-  profile: null,
   status: "",
-  newPostText: ""
+  newPostText: "",
 }
 
 let profileReducer = (state = initialState, action) => {

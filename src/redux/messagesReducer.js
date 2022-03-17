@@ -4,7 +4,8 @@ let initialState = {
   messageData: [
     { id: 1, message: "Hola" },
     { id: 2, message: "Que tal?" },
-    { id: 3, message: "Lorem ipsum dolor, sit amet consectetur adipisicing elit."},
+    { id: 3, message: "Lorem ipsum dolor, sit amet consectetur adipisicing elit." },
+    { id: 4, message: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti minima a sapiente placeat laboriosam. Nam magni laborum vitae voluptates, distinctio reiciendis aspernatur ipsa excepturi repellendus, dicta culpa velit minus sit." }
   ],
 }
 

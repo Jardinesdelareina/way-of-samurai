@@ -37,7 +37,12 @@
     }
     .noteList {
         margin: 0 auto;
+        margin-top: 5px;
         padding: 5%;
         color: gray;
+        background-color: rgba(165, 42, 42, 0.4);
+        font-size: 18px;
+        border-radius: 15px;
+        font-weight: 500;
     }
 }
