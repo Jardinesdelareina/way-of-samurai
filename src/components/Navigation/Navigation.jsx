@@ -6,12 +6,14 @@ import Users from './../../assets/icons/Users.png'
 import Login from './../../assets/icons/Login.png'
 import Dialogs from './../../assets/icons/Dialogs.png'
 import Calc from './../../assets/icons/Calc.png'
+/* import Ava from './../../assets/images/Ava.png' */
 
 const Navigation = (props) => {
   return (
     <nav className={s.navigation}>
       {props.isAuth
         ? (<div className={s.navigation__login}>
+          {/* <img src={props.profile.photos.large != null ? props.profile.photos.large : Ava} alt="" /> */}
           {props.login}
           <button onClick={props.logout}>Выйти</button></div>)
           : (<NavLink to={"/login"}><img src={Login} alt="" /></NavLink>)
