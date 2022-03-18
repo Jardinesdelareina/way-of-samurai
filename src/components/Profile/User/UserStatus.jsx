@@ -26,7 +26,7 @@ const UserStatus = (props) => {
     <div className={s.status}>
       {!editMode &&
         <div className={s.status__text} onDoubleClick={activateEditMode}>
-          {props.status || "Статус"}
+          {props.status}
         </div>
       }
       {editMode &&

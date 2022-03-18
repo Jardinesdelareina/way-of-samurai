@@ -2,7 +2,6 @@
     width: 100%;
     border-radius: 5px;
     padding: 10px;
-    margin: 5px;
     text-align: center;
     color: rgba(255, 255, 255, 0.6);
     &:active {
@@ -12,10 +11,10 @@
 .user {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     padding: 10px;
-    max-width: 40%;
+    max-width: 50%;
     &:hover {
         box-shadow: 0 0 20px rgba(128, 128, 128, 0.5);
     }
