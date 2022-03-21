@@ -1,9 +1,12 @@
 .status {
     display: flex;
     flex-direction: column;
+    align-items: center;
     .status__text {
         font-size: 14px;
         color: gray;
+        padding: 10px;
+        border-radius: 10px;
     }
     .status__input input {
         min-width: 100%;

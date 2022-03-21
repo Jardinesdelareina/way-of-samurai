@@ -3,7 +3,7 @@ import { compose } from 'redux'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { withAuthRedirect } from './../../hoc/withAuthRedirect'
-import { getUserProfile, getStatus, updateStatus, savePhoto } from './../../redux/profileReducer'
+import { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile } from './../../redux/profileReducer'
 import Profile from './Profile'
 
 const withRouter = WrappedComponent => (props) => {
@@ -56,5 +56,6 @@ export default compose(withRouter, withAuthRedirect, connect(mapStateToProps, {
   getUserProfile,
   getStatus,
   updateStatus,
-  savePhoto
+  savePhoto,
+  saveProfile
 }))(ProfileContainer)

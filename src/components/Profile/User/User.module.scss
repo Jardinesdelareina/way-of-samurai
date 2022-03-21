@@ -9,11 +9,33 @@
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
-    .user__ava img {
-        height: 150px;
-        width: 150px;
-        margin: 10px;
-        border-radius: 50%;
+    flex: 0 1 50%;
+    .user__ava {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .userAva {
+            height: 150px;
+            width: 150px;
+            margin: 10px;
+            border-radius: 50%;
+        }
+        label {
+            input[type=file] {
+                width: 0.1px;
+                height: 0.1px;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                z-index: -1;
+            }
+        }
+        .downloadAva {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
     }
     .user__info {
         display: flex;
@@ -25,18 +47,36 @@
             padding-bottom: 5px;
             color: rgb(135, 108, 153);
         }
-        .info__twitter {
+        .info__item {
             color: gray;
+            padding: 5px;
+            
         }
-        .info__instagram {
-            color:gray
-        }
-        .info__github {
-            color:gray
+        .info__itemContacts {
+            padding-left: 20px;
         }
     }
     .user__about {
         margin: 10px;
         max-width: 60%;
+    }
+}
+.user__error {
+    border: 2px solid brown;
+    border-radius: 10px;
+    padding: 5px;
+    color: brown;
+}
+.user__updateInfo {
+    max-width: 20%;
+    min-width: 100px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgba(135, 108, 153, 0.6);
+    color: white;
+    font-size: 14px;
+    margin: 5px;
+    &:active {
+        transform: scale(0.95);
     }
 }

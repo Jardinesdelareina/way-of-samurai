@@ -1,5 +1,6 @@
 .profile {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 10%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
 }

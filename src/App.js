@@ -5,9 +5,9 @@ import { connect, Provider } from 'react-redux'
 import store from './redux/reduxStore'
 import { initApp } from './redux/appReducer'
 import './style/App.scss'
-import Login from './components/Login/Login'
 import Preloader from './components/common/Preloader/Preloader'
 import NavigationContainer from './components/Navigation/NavigationContainer'
+import LoginContainer from './components/Login/LoginContainer'
 
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'))
 const MessagesContainer = lazy(() => import('./components/Messages/MessagesContainer'))
@@ -42,7 +42,7 @@ class App extends React.Component {
                 <Route path="/users" element={<UsersContainer />} />
                 <Route path="/notebook" element={<NotebookContainer />} />
                 <Route path="/calculator" element={<CalculatorContainer />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/login" element={<LoginContainer />} />
               </Routes>
             </Suspense>
           </main>

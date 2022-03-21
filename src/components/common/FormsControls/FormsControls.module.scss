@@ -1,6 +1,6 @@
-.form.error textarea, input {
+/* .form.error textarea, input {
     border: 3px solid brown;
-}
+} */
 
 .form.error span {
     color: brown;
@@ -12,4 +12,27 @@
     border-radius: 10px;
     padding: 5px;
     color: brown;
+    text-align: center;
+}
+
+input {
+    border: 2px solid rgb(135, 108, 153);
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 10px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+textarea {
+    width: 500px;
+    min-height: 100px;
+    border-radius: 10px;
+    color: rgb(128, 128, 128);
+    padding: 15px;
+    font-size: 20px;
+    background-color: rgba(0, 172, 220, 0.055);
+    margin: 5px;
+    resize: none;
+    box-shadow: 0 0 10px gray;
 }

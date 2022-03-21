@@ -9,6 +9,4 @@ const mapStateToProps = (state) => ({
     messageData: state.messagesPage.messageData
 })
 
-const MessagesContainer = compose(withAuthRedirect, connect(mapStateToProps, {addMessage})) (Messages)
-
-export default MessagesContainer
+export default compose(withAuthRedirect, connect(mapStateToProps, {addMessage}))(Messages)

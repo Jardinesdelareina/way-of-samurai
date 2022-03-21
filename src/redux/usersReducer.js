@@ -64,7 +64,7 @@ export const requestUsers = (currentPage, pageSize) => {
 }
 
 const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
-    let response = await apiMethod(userId)
+    const response = await apiMethod(userId)
     if (response.data.resultCode === 0) {
         dispatch(actionCreator(userId))
     }

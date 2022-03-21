@@ -1,13 +1,12 @@
 .profile__post {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    flex: 0 1 50%;
+    margin-right: 30px;
     .post__form {
         display: flex;
         flex-direction: column;
         textarea {
-            min-width: 100%;
+            width: 500px;
             min-height: 100px;
             border-radius: 10px;
             color: rgb(128, 128, 128);

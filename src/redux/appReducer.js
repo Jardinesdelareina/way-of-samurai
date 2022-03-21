@@ -21,7 +21,7 @@ const appReducer = (state = initialState, action) => {
 export const setInit = () => ({ type: SET_INIT })
 
 export const initApp = () => (dispatch) => {
-  let promise = dispatch(getAuthUserData())
+  const promise = dispatch(getAuthUserData())
   Promise.all([promise]).then(() => { dispatch(setInit()) })
 }
 
