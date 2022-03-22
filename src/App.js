@@ -31,7 +31,6 @@ class App extends React.Component {
       <div className="wrapper">
         <NavigationContainer />
         <div className="wrapper__content">
-          <header>Social Network</header>
           <main>
             <Suspense fallback={<Preloader />}>
               <Routes>
@@ -46,7 +45,6 @@ class App extends React.Component {
               </Routes>
             </Suspense>
           </main>
-          <footer>Social Network ©2022 Created by fueros</footer>
         </div>
       </div>
     )

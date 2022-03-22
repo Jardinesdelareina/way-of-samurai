@@ -37,13 +37,13 @@ const User = ({ isOwner, savePhoto, saveProfile, profile, status, updateStatus }
           <img className={s.userAva} src={profile.photos.large || Ava} alt="" />
           {isOwner && <label><img src={Download} alt="" className={s.downloadAva} /><input type="file" onChange={onUpdatePhoto} /></label>}
         </div>
+        <div className={s.user__about}>
+          <UserStatus isOwner={isOwner} status={status} updateStatus={updateStatus} /> 
+        </div>
         {editMode
           ? <UserForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
           : <UserData goToEditMode={() => { setEditMode(true) }} profile={profile} isOwner={isOwner} />
         }
-        <div className={s.user__about}>
-          <UserStatus isOwner={isOwner} status={status} updateStatus={updateStatus} /> 
-        </div>
       </div>
     </div>
   )
@@ -71,7 +71,7 @@ const UserData = ({isOwner, profile, goToEditMode}) => {
 const Contact = ({ contactTitle, contactValue }) => {
   return (
     <div>
-      <b className={s.info__itemContacts}>{contactTitle}:</b>{contactValue}
+      <b className={s.info__itemContacts}>{contactTitle}: </b>{contactValue}
     </div>
   )
 }

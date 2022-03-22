@@ -10,15 +10,16 @@ const minLength = minLengthCreator(5)
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
     <div className={s.login}>
-      <p>Авторизация</p>
       <form className={s.login__form} onSubmit={handleSubmit}>
-        {createField("Электронная почта", "email", [required, maxLength, minLength], Input)}
-        {createField("Пароль", "password", [required, minLength], Input, {type: "password"})}
-        <div className={s.login__checkbox}>
-          {createField(null, "rememberMe", [], Input, {type: "checkbox"})} Запомнить
+        <div className={s.login__input}>
+          {createField("Электронная почта", "email", [required, maxLength, minLength], Input)}
+          {createField("Пароль", "password", [required, minLength], Input, { type: "password" })}
         </div>
-        {captchaUrl && <img src={captchaUrl} alt=""/>}
-        {captchaUrl &&  createField("Символы с изображения", "captcha", [required], Input, {})}
+        <div className={s.login__checkbox}>
+          {createField(null, "rememberMe", [], Input, { type: "checkbox" })} Запомнить
+        </div>
+        {captchaUrl && <img src={captchaUrl} alt="" />}
+        {captchaUrl && createField("Символы с изображения", "captcha", [required], Input, {})}
         {error && <div className={error.login__error}>{error}</div>}
         <button type={"submit"}>Войти</button>
       </form>

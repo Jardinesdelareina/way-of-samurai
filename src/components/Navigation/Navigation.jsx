@@ -14,13 +14,13 @@ const Navigation = (props) => {
         ? (<div className={s.navigation__login}>
           {props.login}
           <button onClick={props.logout}>Выйти</button></div>)
-          : (<NavLink to={"/login"}><img src={Login} alt="" /></NavLink>)
-        } 
-      <NavLink to="/profile"><img src={Profile} alt=""/></NavLink>
-      <NavLink to="/messages"><img src={Dialogs} alt=""/></NavLink>
+        : (<NavLink to={"/login"}><img src={Login} alt="" /></NavLink>)
+      }
+      <NavLink to="/profile"><img src={Profile} alt="" /></NavLink>
+      <NavLink to="/messages"><img src={Dialogs} alt="" /></NavLink>
       <NavLink to="/users"><img src={Users} alt="" /></NavLink>
       <NavLink to="/notebook"><img src={List} alt="" /></NavLink>
-      <NavLink to="/calculator"><img src={Calc} alt=""/></NavLink>
+      <NavLink to="/calculator"><img src={Calc} alt="" /></NavLink>
     </nav>
   )
 }

@@ -1,5 +1,7 @@
+@import './../../../style/templates.scss';
+
 /* .form.error textarea, input {
-    border: 3px solid brown;
+    border-bottom: 2px solid brown
 } */
 
 .form.error span {
@@ -8,7 +10,7 @@
 }
 
 .login__error {
-    border: 2px solid brown;
+    border-bottom: 2px solid brown;
     border-radius: 10px;
     padding: 5px;
     color: brown;
@@ -16,23 +18,19 @@
 }
 
 input {
-    border: 2px solid rgb(135, 108, 153);
-    border-radius: 7px;
-    font-size: 16px;
-    padding: 10px;
-    margin: 5px;
-    font-size: 14px;
+    @extend %input;
 }
 
 textarea {
-    width: 500px;
-    min-height: 100px;
+    
+    height: 100px;
     border-radius: 10px;
     color: rgb(128, 128, 128);
     padding: 15px;
     font-size: 20px;
-    background-color: rgba(0, 172, 220, 0.055);
     margin: 5px;
     resize: none;
     box-shadow: 0 0 10px gray;
+    border-bottom: 2px solid $color__twitter;
+    border-left: 2px solid $color__twitter;
 }
