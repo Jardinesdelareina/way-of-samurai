@@ -10,10 +10,8 @@ import NavigationContainer from './components/Navigation/NavigationContainer'
 import LoginContainer from './components/Login/LoginContainer'
 
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'))
-const MessagesContainer = lazy(() => import('./components/Messages/MessagesContainer'))
 const UsersContainer = lazy(() => import('./components/Users/UsersContainer'))
-const NotebookContainer = lazy(() => import('./components/Notebook/NotebookContainer'))
-const CalculatorContainer = lazy(() => import('./components/Calculator/CalculatorContainer'))
+/* const CalculatorContainer = lazy(() => import('./components/Calculator/CalculatorContainer')) */
 
 class App extends React.Component {
 
@@ -31,23 +29,21 @@ class App extends React.Component {
       <div className="wrapper">
         <NavigationContainer />
         <div className="wrapper__content">
-          <main>
-            <Suspense fallback={<Preloader />}>
-              <Routes>
-                <Route path="/" element={<Navigate to="/profile" />} />
-                <Route path="/profile" element={<ProfileContainer />} />
-                <Route path="/profile/:userId" element={<ProfileContainer />} />
-                <Route path="/messages" element={<MessagesContainer />} />
-                <Route path="/users" element={<UsersContainer />} />
-                <Route path="/notebook" element={<NotebookContainer />} />
-                <Route path="/calculator" element={<CalculatorContainer />} />
-                <Route path="/login" element={<LoginContainer />} />
-              </Routes>
-            </Suspense>
-          </main>
+          <header>Social Network</header>
+          <Suspense fallback={<Preloader />}>
+            <Routes>
+              <Route path="/" element={<Navigate to="/profile" />} />
+              <Route path="/profile" element={<ProfileContainer />} />
+              <Route path="/profile/:userId" element={<ProfileContainer />} />
+              <Route path="/users" element={<UsersContainer />} />
+              {/* <Route path="/calculator" element={<CalculatorContainer />} /> */}
+              <Route path="/login" element={<LoginContainer />} />
+            </Routes>
+          </Suspense>
+          <footer>Created by fueros</footer>
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -1,40 +1,76 @@
-%follow {
-    width: 100%;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.6);
-    &:active {
-        transform: scale(0.95);
-    }
-}
-.user {
+@import './../../style/templates.scss';
+
+.user__page {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 10px;
-    max-width: 50%;
-    &:hover {
-        box-shadow: 0 0 20px rgba(128, 128, 128, 0.5);
-    }
-    .user__ava img {
-        height: 70px;
-        width: 70px;
-        border-radius: 50%;
-        text-align: center;
-    }
-    .user__name {
-        font-size: 20px;
-        color: rgb(135, 108, 153);
-        text-align: center;
-    }
-    .user__unfollow {
-        @extend %follow;
-        background-color: gray;
-    }
-    .user__follow {
-        @extend %follow;
-        background-color: rgb(135, 108, 153);
-    }
+    .users {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        
+        .user {
+            @extend %card;
+            padding: 10px;
+            display: flex;
+            &:hover {
+                box-shadow: 0 0 20px rgb(0, 172, 238);
+            }
+            .user__ava img {
+                height: 85px;
+                width: 85px;
+                border-radius: 50%;
+                text-align: center;
+            }
+            .user__info {
+                display: flex;
+                flex-direction: column;
+                .user__name {
+                    font-size: 20px;
+                    color: $color__twitter;
+                    text-align: center;
+                }
+                .user__unfollow {
+                    text-decoration: none;
+                    display: inline-block;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 15px;
+                    padding: 15px;
+                    margin: 10px 20px;
+                    border-radius: 10px;
+                    background-image: linear-gradient(to right, #ef9e9e 0%, #f03030 50%, #e7daa2 100%);
+                    background-size: 200% auto;
+                    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+                    transition: .5s;
+                    &:hover {
+                        background-position: right center;
+                    }
+                    &:active {
+                        transform: scale(0.90);
+                    }
+                }
+                .user__follow {
+                    text-decoration: none;
+                    display: inline-block;
+                    color: white;
+                    font-weight: bold;
+                    font-size: 15px;
+                    padding: 15px;
+                    margin: 10px 20px;
+                    border-radius: 10px;
+                    background-image: linear-gradient(to right, #9EEFE1 0%, #30f03a 51%, #9EEFE1 100%);
+                    background-size: 200% auto;
+                    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+                    transition: .5s;
+                    &:hover {
+                        background-position: right center;
+                    }
+                    &:active {
+                        transform: scale(0.90);
+                    }
+                }
+            }
+        }
+    }    
 }

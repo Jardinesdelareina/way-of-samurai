@@ -13,14 +13,6 @@ let initialState = {
       id: 1,
       message: "Hi! How are you?",
     },
-    {
-      id: 2,
-      message: "Todo esta bien!!!",
-    },
-    {
-      id: 3,
-      message: "Lorem, ipsum",
-    },
   ],
   status: "",
   profile: null,
@@ -33,7 +25,7 @@ let profileReducer = (state = initialState, action) => {
       return {
         ...state,
         newPostText: "",
-        myPost: [...state.myPost, { id: 4, message: text }]
+        myPost: [...state.myPost, { id: 2, message: text }]
       }
     }
     case DELETE_POST: {

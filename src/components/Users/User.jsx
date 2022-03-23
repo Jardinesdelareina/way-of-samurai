@@ -7,17 +7,19 @@ const User = ({ user, follow, unfollow }) => {
     <div className={s.user}>
       <NavLink to={"/profile/" + user.id}>
         <div className={s.user__ava}>
-          <img src={user.photos.large != null ? user.photos.large : Ava} alt=""/>
+          <img src={user.photos.large || Ava} alt="" />
         </div>
       </NavLink>
-      <NavLink to={"/profile/" + user.id}>
-        <div className={s.user__name}>{user.name}</div>
-      </NavLink>
-      <div>
-        {user.followed
-          ? (<button className={s.user__unfollow} onClick={() => { unfollow(user.id) }}>Отписаться</button>)
-          : (<button className={s.user__follow} onClick={() => { follow(user.id) }}>Подписаться</button>)
-        }
+      <div className={s.user__info}>
+        <NavLink to={"/profile/" + user.id}>
+          <div className={s.user__name}>{user.name}</div>
+        </NavLink>
+        <div>
+          {user.followed
+            ? (<button className={s.user__unfollow} onClick={() => { unfollow(user.id) }}>Отписаться</button>)
+            : (<button className={s.user__follow} onClick={() => { follow(user.id) }}>Подписаться</button>)
+          }
+        </div>
       </div>
     </div>
   )

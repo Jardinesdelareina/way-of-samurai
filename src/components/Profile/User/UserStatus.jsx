@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import s from './UserStatus.module.scss'
 
-const UserStatus = (props) => {
+const UserStatus = ({isOwner, ...props}) => {
   let [editMode, setEditMode] = useState(false)
   let [status, setStatus] = useState(props.status)
 

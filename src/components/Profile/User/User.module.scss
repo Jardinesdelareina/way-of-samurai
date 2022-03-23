@@ -1,35 +1,36 @@
 @import './../../../style/templates.scss';
 
-.user__description {
+.user {
     display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    flex: 0 1 50%;
-    border: 1px solid brown;
-    .user__ava {
+    flex-direction: column;
+    @extend %card;
+    .user__about {
+        margin: 10px;
+    }
+    .user__description {
         display: flex;
-        align-items: center;
-        flex-direction: column;
-        .userAva {
+        .user__ava img {
             height: 15em;
             width: 15em;
             margin: 10px;
             border-radius: 50%;
+            border: 2px solid $color__twitter;
+            box-shadow: 0 0 10px $color__twitter;
         }
-        label {
-            input[type=file] {
-                width: 0.1px;
-                height: 0.1px;
-                opacity: 0;
-                overflow: hidden;
-                position: absolute;
-                z-index: -1;
+        .user__buttons {
+            label {
+                input[type=file] {
+                    width: 0.1px;
+                    height: 0.1px;
+                    opacity: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    z-index: -1;
+                }
             }
-        }
-        .downloadAva {
-            width: 40px;
-            height: 40px;
-            cursor: pointer;        
+            .downloadAva {
+                @extend %button;        
+            }
         }
     }
     .user__info {
@@ -40,7 +41,7 @@
         .info__name {
             font-size: 20px;
             padding-bottom: 5px;
-            color: rgb(135, 108, 153);
+            color: $color__twitter;
         }
         .info__item {
             color: gray;
@@ -50,10 +51,6 @@
         .info__itemContacts {
             padding-left: 20px;
         }
-    }
-    .user__about {
-        margin: 10px;
-        max-width: 60%;
     }
 }
 .user__error {

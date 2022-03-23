@@ -4,7 +4,6 @@ import UserForm from './UserForm'
 import Ava from './../../../assets/images/Ava.png'
 import UserStatus from './UserStatus'
 import Preloader from './../../common/Preloader/Preloader'
-import Download from './../../../assets/icons/Download.png'
 
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons'
 
@@ -32,18 +31,20 @@ const User = ({ isOwner, savePhoto, saveProfile, profile, status, updateStatus }
 
   return (
     <div className={s.user}>
+      <div className={s.user__about}>
+        <UserStatus isOwner={isOwner} status={status} updateStatus={updateStatus} /> 
+      </div>
       <div className={s.user__description}>
         <div className={s.user__ava}>
-          <img className={s.userAva} src={profile.photos.large || Ava} alt="" />
-          {isOwner && <label><img src={Download} alt="" className={s.downloadAva} /><input type="file" onChange={onUpdatePhoto} /></label>}
+          <img src={profile.photos.large || Ava} alt="" />
         </div>
-        <div className={s.user__about}>
-          <UserStatus isOwner={isOwner} status={status} updateStatus={updateStatus} /> 
+        <div className={s.user__buttons}>
+          {isOwner && <label><div className={s.downloadAva}>Загрузить фото</div><input type="file" onChange={onUpdatePhoto} /></label>}
+          {editMode
+            ? <UserForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
+            : <UserData goToEditMode={() => { setEditMode(true) }} profile={profile} isOwner={isOwner} />
+          }
         </div>
-        {editMode
-          ? <UserForm initialValues={profile} profile={profile} onSubmit={onSubmit} />
-          : <UserData goToEditMode={() => { setEditMode(true) }} profile={profile} isOwner={isOwner} />
-        }
       </div>
     </div>
   )
@@ -52,7 +53,7 @@ const User = ({ isOwner, savePhoto, saveProfile, profile, status, updateStatus }
 const UserData = ({isOwner, profile, goToEditMode}) => {
   return (
     <div>
-      {isOwner && <button className={s.user__updateInfo} onClick={goToEditMode}>Изменить</button>}
+      {isOwner && <button className={s.user__updateInfo} onClick={goToEditMode}>Изменить профиль</button>}
       <div className={s.user__info}>
         <div className={s.info__name}>{profile.fullName}</div>
         <div className={s.info__item}><b>Ищу работу: </b>{profile.lookingForAJob ? <CheckOutlined /> : <CloseOutlined />}</div>

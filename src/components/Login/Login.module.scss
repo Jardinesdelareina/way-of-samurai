@@ -5,15 +5,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 15%;
+        justify-content: center;
         .login__checkbox {
             display: flex;
             align-items: center;
-            color: $color__twitter;
-            font-weight: bold;
-        }
-        input {
-            @extend %input;
         }
         button {
             @extend %button;

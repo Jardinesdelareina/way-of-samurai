@@ -39,7 +39,7 @@ $color__purple: rgb(128, 0, 128);
 %input {
     border-radius: 7px;
     font-size: 16px;
-    padding: 15px;
+    padding: 10px;
     margin: 4px;
     font-size: 14px;
     border-bottom: 2px solid $color__twitter;
@@ -47,23 +47,30 @@ $color__purple: rgb(128, 0, 128);
     transition: all 0.2s ease;
     &:focus {
         outline: 0;
-        border-color: rgb(247, 122, 82);
+        border-color: $color__purple;
         transform: scale(1.05);
     }
 }
 
 %textarea {
-    width: 500px;
     min-height: 100px;
     border-radius: 10px;
     color: rgb(128, 128, 128);
     padding: 15px;
     font-size: 20px;
-    background-color: rgba(0, 172, 220, 0.055);
     margin: 5px;
     resize: none;
     box-shadow: 0 0 10px gray;
     border-bottom: 2px solid $color__twitter;
+    border-left: 2px solid $color__twitter;
+}
+
+%card {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    padding: 6px;
+    box-shadow: 0 0 10px gray;
+    margin: 10px;
 }
 
 %backgroundImage {
