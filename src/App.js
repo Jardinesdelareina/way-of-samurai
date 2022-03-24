@@ -11,7 +11,6 @@ import LoginContainer from './components/Login/LoginContainer'
 
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'))
 const UsersContainer = lazy(() => import('./components/Users/UsersContainer'))
-/* const CalculatorContainer = lazy(() => import('./components/Calculator/CalculatorContainer')) */
 
 class App extends React.Component {
 
@@ -36,7 +35,6 @@ class App extends React.Component {
               <Route path="/profile" element={<ProfileContainer />} />
               <Route path="/profile/:userId" element={<ProfileContainer />} />
               <Route path="/users" element={<UsersContainer />} />
-              {/* <Route path="/calculator" element={<CalculatorContainer />} /> */}
               <Route path="/login" element={<LoginContainer />} />
             </Routes>
           </Suspense>
