@@ -9,12 +9,13 @@
     }
     .user__description {
         display: flex;
+        flex-direction: column;
+        width: 500px;
         .user__ava img {
             height: 15em;
             width: 15em;
             margin: 10px;
             border-radius: 50%;
-            border: 2px solid $color__twitter;
             box-shadow: 0 0 10px $color__twitter;
         }
         .user__buttons {
@@ -36,7 +37,6 @@
     .user__info {
         display: flex;
         flex-direction: column;
-        padding-left: 1%;
         margin: 10px;
         .info__name {
             font-size: 20px;

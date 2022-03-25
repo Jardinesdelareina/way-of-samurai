@@ -7,14 +7,14 @@
     .users {
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         
         .user {
             @extend %card;
             padding: 10px;
             display: flex;
             &:hover {
-                box-shadow: 0 0 20px rgb(0, 172, 238);
+                box-shadow: 0 0 20px gray;
             }
             .user__ava img {
                 height: 85px;

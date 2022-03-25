@@ -17,6 +17,10 @@
     }
     .post__post {
         display: flex;
+        align-items: center;
+        .post__delete {
+            color: gray;
+        }
         .post__message {
             background-color: rgba(255, 255, 255, 0.6);
             box-shadow: 0 0 5px gray;

@@ -50,7 +50,8 @@ const User = ({ isOwner, savePhoto, saveProfile, profile, status, updateStatus }
   )
 }
 
-const UserData = ({isOwner, profile, goToEditMode}) => {
+const UserData = ({ isOwner, profile, goToEditMode }) => {
+  
   return (
     <div>
       {isOwner && <button className={s.user__updateInfo} onClick={goToEditMode}>Изменить профиль</button>}

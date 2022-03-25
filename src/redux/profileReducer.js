@@ -11,7 +11,7 @@ let initialState = {
   myPost: [
     {
       id: 1,
-      message: "Hi! How are you?",
+      message: "First post",
     },
   ],
   status: "",
@@ -24,7 +24,6 @@ let profileReducer = (state = initialState, action) => {
       let text = action.newPostText
       return {
         ...state,
-        newPostText: "",
         myPost: [...state.myPost, { id: 2, message: text }]
       }
     }

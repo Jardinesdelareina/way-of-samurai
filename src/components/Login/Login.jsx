@@ -7,6 +7,7 @@ import { createField, Input } from './../common/FormsControls/FormsControls'
 const maxLength = maxLengthCreator(40)
 const minLength = minLengthCreator(5)
 
+// handleSubmit приходит из контейнерной компоненты redux-form, ее задача - сабмитить всю форму
 const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
   return (
     <div className={s.login}>
@@ -21,28 +22,32 @@ const LoginForm = ({ handleSubmit, error, captchaUrl }) => {
         {captchaUrl && <img src={captchaUrl} alt="" />}
         {captchaUrl && createField("Символы с изображения", "captcha", [required], Input, {})}
         {error && <div className={error.login__error}>{error}</div>}
-        <button type={"submit"}>Войти</button>
+        <button>Войти</button>
       </form>
     </div>
   )
 }
 
-const LoginReduxForm = reduxForm({form: "login"})(LoginForm)
-
 const Login = (props) => {
+  // Собирает данные, которые придут в контейнерную компоненту во время сабмита
   const onSubmit = (formData) => {
     props.login(formData.email, formData.password, formData.rememberMe, formData.captcha)
   }
 
+  // Если авторизован, редирект на адрес to={"/..."}
   if (props.isAuth) {
     return <Navigate to={"/profile"} />
   }
 
   return (
+    // "Контейнерная компонента" от Redux, которая оборачивает компоненту с формами
     <div>
       <LoginReduxForm onSubmit={onSubmit} captchaUrl={props.captchaUrl} />
     </div>
   )
 }
+
+// form: "..." - уникальное имя для каждой формы
+const LoginReduxForm = reduxForm({form: "login"})(LoginForm)
 
 export default Login

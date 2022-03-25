@@ -29,19 +29,21 @@ class App extends React.Component {
         <NavigationContainer />
         <div className="wrapper__content">
           <header>Social Network</header>
-          <Suspense fallback={<Preloader />}>
-            <Routes>
-              <Route path="/" element={<Navigate to="/profile" />} />
-              <Route path="/profile" element={<ProfileContainer />} />
-              <Route path="/profile/:userId" element={<ProfileContainer />} />
-              <Route path="/users" element={<UsersContainer />} />
-              <Route path="/login" element={<LoginContainer />} />
-            </Routes>
-          </Suspense>
+          <main>
+            <Suspense fallback={<Preloader />}>
+              <Routes>
+                <Route path="/" element={<Navigate to="/profile" />} />
+                <Route path="/profile" element={<ProfileContainer />} />
+                <Route path="/profile/:userId" element={<ProfileContainer />} />
+                <Route path="/users" element={<UsersContainer />} />
+                <Route path="/login" element={<LoginContainer />} />
+              </Routes>
+            </Suspense>
+          </main>
           <footer>Created by fueros</footer>
         </div>
       </div>
-    );
+    )
   }
 }
 

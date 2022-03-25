@@ -6,6 +6,7 @@ import { withAuthRedirect } from './../../hoc/withAuthRedirect'
 import { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile } from './../../redux/profileReducer'
 import Profile from './Profile'
 
+// hook, который заменяет withRouter из старых версий react-router-dom
 const withRouter = WrappedComponent => (props) => {
   const params = useParams()
   return (
@@ -52,6 +53,9 @@ let mapStateToProps = (state) => ({
   auth: state.auth.isAuth,
 })
 
+/* compose — это функция, которая позволяет получить результат одной функци, 
+а потом обработать его при помощи другой функции
+connect - функция, которая вызывает HOC */
 export default compose(withRouter, withAuthRedirect, connect(mapStateToProps, {
   getUserProfile,
   getStatus,

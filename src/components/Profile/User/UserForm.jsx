@@ -10,7 +10,7 @@ const UserForm = ({profile, handleSubmit, error}) => {
             <div className={s.info__item}><b>Ищу работу: </b>{createField("", "lookingForAJob", [], Input, { type: "checkbox" })}</div>
             <div className={s.info__item}><b>Навыки: </b>{createField("Навыки", "lookingForAJobDescription", [], Textarea)}</div>
             <div className={s.info__item}><b>Обо мне: </b>{createField("Обо мне", "aboutMe", [], Textarea)}</div>
-            <div className={s.info__item}>{Object.keys(profile.contacts).map(key => {
+            <div className={s.info__item}>{Object.keys(profile.contacts).map(key => {   // Мапит строки json-объекта contacts и выводит их в список
                 return <div key={key}><b>{key}: </b>{createField(key, "contacts." + key, [], Input)}</div>
             })}</div>
             <button className={s.user__updateInfo}>Сохранить</button>
