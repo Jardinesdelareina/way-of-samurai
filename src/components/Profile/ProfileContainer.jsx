@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import { withAuthRedirect } from './../../hoc/withAuthRedirect'
 import { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile } from './../../redux/profileReducer'
 import Profile from './Profile'
+import { getProfile, getUserStatus } from './../../utils/selectors/profileSelectors'
+import { getIsAuth, getAuthUserId } from './../../utils/selectors/authSelectors'
 
 // hook, который заменяет withRouter из старых версий react-router-dom
 const withRouter = WrappedComponent => (props) => {
@@ -17,9 +19,9 @@ const withRouter = WrappedComponent => (props) => {
 class ProfileContainer extends React.Component {
 
   refreshProfile() {
-    let userId = this.props.params.userId || this.props.authUserId
-    this.props.getUserProfile(userId)
-    this.props.getStatus(userId)
+    let userId = this.props.params.userId || this.props.authUserId  // Показать либо пользователя с выбранным id, либо авторизованного
+    this.props.getUserProfile(userId)  // Запрос профайла по id
+    this.props.getStatus(userId)  // Запрос статуса профайла по id
   }
 
   componentDidMount() {
@@ -36,7 +38,7 @@ class ProfileContainer extends React.Component {
     return (
       <Profile
         {...this.props}
-        isOwner={!this.props.params.userId}
+        isOwner={!this.props.params.userId}  // Если нет userId, значит пользователь авторизованый
         profile={this.props.profile}
         status={this.props.status}
         updateStatus={this.props.updateStatus}
@@ -47,10 +49,10 @@ class ProfileContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-  profile: state.profilePage.profile,
-  status: state.profilePage.status,
-  authUserId: state.auth.id,
-  auth: state.auth.isAuth,
+  profile: getProfile(state),
+  status: getUserStatus(state),
+  authUserId: getAuthUserId(state),
+  auth: getIsAuth(state),
 })
 
 /* compose — это функция, которая позволяет получить результат одной функци, 

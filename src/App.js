@@ -53,10 +53,12 @@ const mapStateToProps = (state) => ({
 
 let AppContainer = compose(connect(mapStateToProps, { initApp }))(App)
 
+// Provider добавляет стор в контекст с помощью Context API
+// Все, что обернуто Провайдером, имеет доступ к стору
 const SocialNetworkApp = () => {
   return (
     <BrowserRouter>
-      <Provider store={store}>
+      <Provider store={store}>   
         <AppContainer />
       </Provider>
     </BrowserRouter>

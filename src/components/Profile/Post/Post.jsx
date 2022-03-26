@@ -1,5 +1,5 @@
 import React from 'react'
-import { reduxForm } from 'redux-form'
+import { reduxForm, reset } from 'redux-form'
 import s from './Post.module.scss'
 import { maxLengthCreator, required } from './../../../utils/validators/validators'
 import { Textarea, createField } from './../../common/FormsControls/FormsControls'
@@ -19,10 +19,13 @@ const PostItem = (props) => {
 
 const Post = React.memo(props => {
 
-  let addNewPost = (values) => {
-    props.addPost(values.newPostText)
+  let addNewPost = (values, dispatch) => {
+    props.addPost(values.newPostText)  // Постит введенный текст
+    dispatch(reset("post"))            // Очищает форму после сабмита
   }
 
+  // Массив объектов превращается в массив jsx-элементов
+  // reverse инвертирует порядок добавления новых elementPost: новые элементы в начале, старые в конце
   let elementPost = [...props.myPost].reverse().map((p) => (
     <PostItem key={p.id} message={p.message} />
   ))
@@ -39,9 +42,9 @@ const Post = React.memo(props => {
   )
 })
 
-const maxLength = maxLengthCreator(100)
+const maxLength = maxLengthCreator(2000)
 
-const AddPostForm = ({ handleSubmit }) => {
+const AddPostForm = ({ handleSubmit}) => {
   return (
     <form className={s.post__form} onSubmit={handleSubmit} >
       {createField("Ваш пост", "newPostText", [required, maxLength], Textarea)}

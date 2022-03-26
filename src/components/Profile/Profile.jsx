@@ -5,6 +5,7 @@ import Preloader from '../common/Preloader/Preloader'
 
 const Profile = (props) => {
 
+  // Если нет профайла (идет загрузка) показать компонент Прелоадера
   if (!props.profile) {
     return (<Preloader />)
   }

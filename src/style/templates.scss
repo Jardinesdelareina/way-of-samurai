@@ -45,14 +45,15 @@ $color__purple: rgb(128, 0, 128);
     border-bottom: 2px solid $color__twitter;
     box-shadow: 0 0 10px gray;
     transition: all 0.2s ease;
+    text-indent: 0px;   
+    transition: text-indent 0.8s ease;
     &:focus {
         outline: 0;
         border-color: $color__purple;
         transform: scale(1.05);
     }
     &:focus::placeholder{
-        text-indent: 0px;   
-        transition: text-indent 0.3s ease;
+        text-indent: -300px;
     }
 }
 
@@ -67,9 +68,10 @@ $color__purple: rgb(128, 0, 128);
     box-shadow: 0 0 10px gray;
     border-bottom: 2px solid $color__twitter;
     border-left: 2px solid $color__twitter;
-    &:focus::placeholder{
-        text-indent: 0px;   
-        transition: text-indent 0.3s ease;
+    text-indent: 0px;   
+    transition: text-indent 0.8s ease;
+    &:focus::placeholder {
+        text-indent: -300px;
     }
 }
 

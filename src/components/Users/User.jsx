@@ -15,7 +15,7 @@ const User = ({ user, follow, unfollow }) => {
           <div className={s.user__name}>{user.name}</div>
         </NavLink>
         <div>
-          {user.followed
+          {user.followed  // Если юзер followed = true показывается кнопка, которая меняет true на false, и наоборот
             ? (<button className={s.user__unfollow} onClick={() => { unfollow(user.id) }}>Отписаться</button>)
             : (<button className={s.user__follow} onClick={() => { follow(user.id) }}>Подписаться</button>)
           }
