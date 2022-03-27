@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom'
-import './style/index.scss'
+import './style/_nullstyle.scss'
 import reportWebVitals from './reportWebVitals'
 import SocialNetworkApp from './App'
 
