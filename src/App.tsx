@@ -2,14 +2,14 @@ import React, { lazy, Suspense } from 'react'
 import { compose } from 'redux'
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom'
 import { connect, Provider } from 'react-redux'
-import store from './redux/reduxStore'
+import store, { AppStateType } from './redux/reduxStore'
 import { withRouter } from './hoc/withRouter'
 import { initApp } from './redux/appReducer'
 import './style/App.scss'
 import Preloader from './components/common/Preloader/Preloader'
+import PageNotFound from './components/common/PageNotFound/PageNotFound'
 import NavigationContainer from './components/Navigation/NavigationContainer'
 import LoginContainer from './components/Login/LoginContainer'
-
 
 // Lazy рендерит компоненты динамически, по требованию
 // Это облегчает загрузку страницы, но увеличивает время ожидания страницы
@@ -17,12 +17,27 @@ import LoginContainer from './components/Login/LoginContainer'
 const ProfileContainer = lazy(() => import('./components/Profile/ProfileContainer'))
 const UsersContainer = lazy(() => import('./components/Users/UsersContainer'))
 
-class App extends React.Component {
+type MapPropsType = ReturnType<typeof mapStateToProps>
+type DispatchPropsType = {
+    initApp: () => void
+}
+
+class App extends React.Component<MapPropsType & DispatchPropsType> {
+
+  catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {  // Выводит alert при возникновении ошибки, просто информирует
+    alert('Произошла какая-то ошибка, что-то пошло не так')
+  }
+
 
   componentDidMount() {   // Метод жизненного цикла, срабатывает один раз когда компонента монтируется
     this.props.initApp()  // В данном случае при инициализации приложения
+    window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors) // Асинхронная операция, ловит произошедшие ошибки
   }
   
+  componentWillUnmount() {
+    window.removeEventListener('unhandledrejection', this.catchAllUnhandledErrors) // Подчищает асинхронный мусор из компоненты
+  }
+
   render() {
     // Если (пока) приложение не проинициализировано, показать Preloader
     if(!this.props.init) {
@@ -42,6 +57,7 @@ class App extends React.Component {
                 <Route path="/profile/:userId" element={<ProfileContainer />} />
                 <Route path="/users" element={<UsersContainer />} />
                 <Route path="/login" element={<LoginContainer />} />
+                <Route path="*" element={<PageNotFound />} />
               </Routes>
             </Suspense>
           </main>
@@ -52,7 +68,7 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: AppStateType) => ({
   init: state.app.init
 })
 
@@ -64,7 +80,7 @@ let AppContainer = compose(withRouter, connect(mapStateToProps, { initApp }))(Ap
 // Provider добавляет стор в контекст с помощью Context API
 // Все, что обернуто Провайдером, имеет доступ к стору
 // Это делается для того, чтобы не прокидывать стор через пропсы вниз по дереву
-const SocialNetworkApp = () => {
+const SocialNetworkApp: React.FC = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>   

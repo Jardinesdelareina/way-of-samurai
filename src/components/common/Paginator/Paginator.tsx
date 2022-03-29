@@ -1,12 +1,26 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import s from './Paginator.module.scss'
 
 import { RightOutlined, LeftOutlined } from '@ant-design/icons'
 
-const Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10}) => {
+type PropsType = {
+  totalItemsCount: number
+  pageSize: number
+  currentPage?: number
+  onPageChanged?: (pageNumber: number) => void
+  portionSize?: number
+}
+
+const Paginator: React.FC<PropsType> = ({
+  totalUsersCount,
+  pageSize,
+  currentPage = 1,
+  onPageChanged = x => x,
+  portionSize = 10
+}) => {
   let pagesCount = Math.ceil(totalUsersCount / pageSize)
 
-  let pages = []
+  let pages: Array<number> = []
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i)
   }
@@ -27,9 +41,7 @@ const Paginator = ({totalUsersCount, pageSize, currentPage, onPageChanged, porti
           return (
             <span
               className={currentPage === p && s.selectedPage}
-              onClick={() => {
-                onPageChanged(p)
-              }}
+              onClick={() => {onPageChanged(p)}}
             >
               {" " + p + " "}
             </span>
