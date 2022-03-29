@@ -1,10 +1,20 @@
+import React from 'react'
 import s from './Profile.module.scss'
 import User from './User/User'
 import PostContainer from './Post/PostContainer'
 import Preloader from '../common/Preloader/Preloader'
+import { ProfileType } from '../../types/types'
 
-const Profile = (props) => {
+type PropsType = {
+  profile: ProfileType | null
+  status: string
+  updateStatus: (status: string) => void
+  isOwner: boolean
+  savePhoto: (file: File) => void
+  saveProfile: (profile: ProfileType) => Promise<any>
+}
 
+const Profile: React.FC<PropsType> = (props) => {
   // Если нет профайла (идет загрузка) показать компонент Прелоадера
   if (!props.profile) {
     return (<Preloader />)

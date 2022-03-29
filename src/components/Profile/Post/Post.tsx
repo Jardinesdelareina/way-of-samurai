@@ -1,12 +1,25 @@
 import React from 'react'
-import { reduxForm, reset } from 'redux-form'
+import { InjectedFormProps, reduxForm, reset } from 'redux-form'
 import s from './Post.module.scss'
-import { maxLengthCreator, required } from './../../../utils/validators/validators'
-import { Textarea, createField } from './../../common/FormsControls/FormsControls'
+import { maxLengthCreator, required } from '../../../utils/validators/validators'
+import { Textarea, createField, GetStringKeys } from '../../common/FormsControls/FormsControls'
+import { PostType } from '../../../types/types'
 
 import { CloseOutlined } from '@ant-design/icons'
 
-const PostItem = (props) => {
+export type PropsType = {
+  message: string
+}
+
+export type MapPropsType = {
+  posts: Array<PostType>
+}
+
+export type DispatchPropsType = {
+  addPost: (newPostText: string) => void
+}
+
+const PostItem: React.FC<PropsType> = (props) => {
   return (
     <div className={s.post__post}>
       <div className={s.post__message}>
@@ -17,9 +30,15 @@ const PostItem = (props) => {
   )
 }
 
-const Post = React.memo(props => {
+export type AddPostFormValuesType = {
+  newPostText: string
+}
 
-  let addNewPost = (values, dispatch) => {
+type AddPostFormValuesTypeKeys = GetStringKeys<AddPostFormValuesType>
+
+const Post: React.FC<MapPropsType & DispatchPropsType> = React.memo(props => {
+
+  let addNewPost = (values: AddPostFormValuesType, dispatch: any) => {
     props.addPost(values.newPostText)  // Постит введенный текст
     dispatch(reset("post"))            // Очищает форму после сабмита
   }
@@ -44,15 +63,15 @@ const Post = React.memo(props => {
 
 const maxLength = maxLengthCreator(2000)
 
-const AddPostForm = ({ handleSubmit}) => {
+const AddPostForm: React.FC<InjectedFormProps<AddPostFormValuesType, PropsType> & PropsType> = ({ handleSubmit}) => {
   return (
     <form className={s.post__form} onSubmit={handleSubmit} >
-      {createField("Ваш пост", "newPostText", [required, maxLength], Textarea)}
+      {createField<AddPostFormValuesTypeKeys>("Ваш пост", "newPostText", [required, maxLength], Textarea)}
       <button>Отправить</button>
     </form>
   )
 }
 
-const AddPostReduxForm = reduxForm({ form: "post" })(AddPostForm)
+const AddPostReduxForm = reduxForm<AddPostFormValuesType, PropsType>({ form: "post" })(AddPostForm)
 
 export default Post

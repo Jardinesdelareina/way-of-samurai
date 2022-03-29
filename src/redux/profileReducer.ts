@@ -1,5 +1,6 @@
 import { FormAction, stopSubmit } from 'redux-form'
 import { profileAPI, usersAPI } from '../api/api'
+import { PostType, ProfileType } from '../types/types'
 import { BaseThunkType, InferActionsTypes } from './reduxStore'
 
 const ADD_POST = 'ADD_POST'

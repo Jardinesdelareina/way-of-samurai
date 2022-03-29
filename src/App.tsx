@@ -9,7 +9,7 @@ import './style/App.scss'
 import Preloader from './components/common/Preloader/Preloader'
 import PageNotFound from './components/common/PageNotFound/PageNotFound'
 import NavigationContainer from './components/Navigation/NavigationContainer'
-import LoginContainer from './components/Login/LoginContainer'
+import Login from './components/Login/Login'
 
 // Lazy рендерит компоненты динамически, по требованию
 // Это облегчает загрузку страницы, но увеличивает время ожидания страницы
@@ -56,7 +56,7 @@ class App extends React.Component<MapPropsType & DispatchPropsType> {
                 <Route path="/profile" element={<ProfileContainer />} />
                 <Route path="/profile/:userId" element={<ProfileContainer />} />
                 <Route path="/users" element={<UsersContainer />} />
-                <Route path="/login" element={<LoginContainer />} />
+                <Route path="/login" element={<Login />} />
                 <Route path="*" element={<PageNotFound />} />
               </Routes>
             </Suspense>

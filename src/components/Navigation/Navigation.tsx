@@ -1,13 +1,15 @@
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import s from './Navigation.module.scss'
 import Profile from './../../assets/icons/Profile.png'
 import Users from './../../assets/icons/Users.png'
 import Login from './../../assets/icons/Login.png'
+import { DispatchPropsType, MapPropsType } from './NavigationContainer'
 
 /* Если пользователь авторизован, показать его логин и кнопку "Выход", 
 иначе - показать форму авторизации,
 остальные линки показать вне зависимости от авторизованности */
-const Navigation = ({isAuth, login, logout}) => {
+const Navigation: React.FC<MapPropsType & DispatchPropsType> = ({isAuth, login, logout}) => {
   return (
     <nav className={s.navigation}>
       {isAuth
