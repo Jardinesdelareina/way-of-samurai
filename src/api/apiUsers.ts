@@ -13,6 +13,6 @@ export const usersAPI = {
         return res.data // Создать follow
     },
     unfollow(userId: number) {
-        return instance.delete(`follow/${userId}`).then(res => res.data)  as Promise<APIResponseType> // Удалить follow
+        return instance.delete(`follow/${userId}`).then(res => res.data) as Promise<APIResponseType> // Удалить follow
     }
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import { InjectedFormProps, reduxForm, reset } from 'redux-form'
 import s from './Post.module.scss'
-import { maxLengthCreator, required } from '../../../utils/validators/validators'
-import { Textarea, createField, GetStringKeys } from '../../common/FormsControls/FormsControls'
-import { PostType } from '../../../types/types'
+import { maxLengthCreator, required } from './../../../utils/validators/validators'
+import { Textarea, createField, GetStringKeys } from './../../common/FormsControls/FormsControls'
+import { PostType } from './../../../types/types'
 
 import { CloseOutlined } from '@ant-design/icons'
 

@@ -7,7 +7,7 @@ import Preloader from './../common/Preloader/Preloader'
 import { withAuthRedirect } from './../../hoc/withAuthRedirect'
 import { getUsers, getPageSize, getCurrentPage, getTotalUsersCount, getIsFetching } from './../../utils/selectors/usersSelectors'
 import { UserType } from './../../types/types'
-import { AppStateType } from '../../redux/reduxStore'
+import { AppStateType } from './../../redux/reduxStore'
 
 type MapStatePropsType = {
   currentPage: number
@@ -64,7 +64,9 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
     isFetching: getIsFetching(state),
 })
 
-export default compose(withAuthRedirect, connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
+export default compose(withAuthRedirect,
+  // TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, State = DefaultRootState
+  connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
   follow,
   unfollow,
   getUsers: requestUsers

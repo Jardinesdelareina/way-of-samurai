@@ -4,10 +4,10 @@ import { ValidatorType } from './../../../utils/validators/validators'
 import s from './FormsControls.module.scss'
 
 type FormControlPropsType = {
-    meta: WrappedFieldMetaProps
+    meta: WrappedFieldMetaProps  // Импорт типов из библиотеки***
 }
 
-export type GetStringKeys<T> = Extract<keyof T, string>
+export type GetStringKeys<T> = Extract<keyof T, string>  // Перебирает все ключи (name), которые являются строкой
 
 const FormControl: React.FC<FormControlPropsType> = ({ meta: {touched, error}, children, ...props }) => {
     const hasError = touched && error  // Если форма была была тронута (touched) и была ошибка, то отобразить div с ошибкой
@@ -34,7 +34,7 @@ export const Textarea: React.FC<WrappedFieldProps> = (props) => {
 
 export function createField<FormKeysType extends string>(
     placeholder: string | undefined,
-    name: FormKeysType,
+    name: FormKeysType,    // Тип, который определяет ключи какой-либо формы
     validators: Array<ValidatorType>,
     component: React.FC<WrappedFieldProps>,
     props = {},
@@ -51,3 +51,23 @@ export function createField<FormKeysType extends string>(
         /> {text}
     </div>
 }
+
+/* 
+export interface WrappedFieldMetaProps {
+    active?: boolean
+    autofilled: boolean
+    asyncValidating: boolean
+    dirty: boolean
+    dispatch: Dispatch<any>
+    error?: any; <--- make this error?: string
+    form: string
+    initial: any
+    invalid: boolean
+    pristine: boolean
+    submitting: boolean
+    submitFailed: boolean
+    touched: boolean
+    valid: boolean
+    visited: boolean
+    warning?: any <--- make this warning?: string
+} */

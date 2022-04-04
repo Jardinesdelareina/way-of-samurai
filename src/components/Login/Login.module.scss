@@ -13,5 +13,10 @@
         button {
             @extend %button;
         }
+        .login__error {
+            border-bottom: 2px solid brown;
+            color: brown;
+            text-align: center;
+        }
     }
 }

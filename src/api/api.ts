@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { UserType } from '../types/types'
+import { UserType } from './../types/types'
 
 /* 
 REST API - инструкция(рекомендация) по использованию http - протокола для взаимодействия
@@ -16,12 +16,12 @@ export const instance = axios.create({
     baseURL: "https://social-network.samuraijs.com/api/1.0/",
     headers: {
         "API-KEY": "db736b46-6ab4-4844-bc15-2bc17b090fbe"
-    },
+    }
 })
 
 export enum ResultCodesEnum {
     Success = 0,
-    Error = 1
+    Error = 1,
 }
 
 export enum ResultCodeForCapcthaEnum {

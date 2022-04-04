@@ -1,14 +1,11 @@
 import { FormAction, stopSubmit } from 'redux-form'
-import { ResultCodeForCapcthaEnum, ResultCodesEnum } from '../api/api'
+import { ResultCodeForCapcthaEnum, ResultCodesEnum } from './../api/api'
 import { authAPI } from '../api/apiAuth'
 import { securityAPI } from '../api/apiSecurity'
 import { BaseThunkType, InferActionsTypes } from './reduxStore'
 
-const SET_AUTH_USER_DATA = 'SET_AUTH_USER_DATA'
-const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL'
-
 let initialState = {
-  userId: null as (number | null),
+  userId: null as number | null,
   login: null as string | null,
   email: null as string | null,
   isAuth: false as boolean,
@@ -21,8 +18,8 @@ type ThunkType = BaseThunkType<ActionsType | FormAction>
 
 const authReducer = (state = initialState, action: ActionsType): InitialStateType => {
   switch (action.type) {
-    case SET_AUTH_USER_DATA:
-    case GET_CAPTCHA_URL_SUCCESS:
+    case 'SET_AUTH_USER_DATA':
+    case 'GET_CAPTCHA_URL_SUCCESS':
       return {
         ...state,
         ...action.payload,
@@ -33,8 +30,13 @@ const authReducer = (state = initialState, action: ActionsType): InitialStateTyp
 }
 
 export const actions = {
-  setAuthUserData: (id: number, login: string, email: string, isAuth: boolean) => ({ type: SET_AUTH_USER_DATA, payload: { id, login, email, isAuth } } as const),
-  getCaptchaUrlSuccess: (captchaUrl: string) => ({ type: GET_CAPTCHA_URL_SUCCESS, payload: { captchaUrl } } as const)
+  setAuthUserData: (
+    id: number | null,
+    login: string | null,
+    email: string | null,
+    isAuth: boolean
+  ) => ({ type: 'SET_AUTH_USER_DATA', payload: { id, login, email, isAuth } } as const),
+  getCaptchaUrlSuccess: (captchaUrl: string) => ({ type: 'GET_CAPTCHA_URL_SUCCESS', payload: { captchaUrl } } as const)
 }
 
 export const getAuthUserData = (): ThunkType => async (dispatch) => {
@@ -54,10 +56,10 @@ export const login = (email: string, password: string, rememberMe: boolean, capt
       dispatch(getCaptchaUrl())
     }
 
-    const message = response.data.messages               // Если messages есть,
+    const message = response.data.messages[0]            // Если messages есть,
         ? "Поле email или пароль заполнены не верно"     // вывести это сообщение
         : "Ошибка"                                       // иначе вывести это сообщение
-    dispatch(stopSubmit("login", { _error: message }))  // Прекратить сабмит формы, с name'ом "login"
+    dispatch(stopSubmit("login", { _error: message }))   // Прекратить сабмит формы, с name'ом "login"
   }
 }
 
@@ -70,7 +72,7 @@ export const logout = (): ThunkType => async (dispatch) => {
 
 export const getCaptchaUrl = (): ThunkType => async (dispatch) => {
   const response = await securityAPI.getCaptchaUrl()
-  const captchaUrl = response.data.url
+  const captchaUrl = response.url
   dispatch(actions.getCaptchaUrlSuccess(captchaUrl))
 }
 

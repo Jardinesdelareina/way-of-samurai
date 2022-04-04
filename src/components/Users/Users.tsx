@@ -1,8 +1,8 @@
 import React from 'react'
 import s from './User.module.scss'
-import Paginator from '../common/Paginator/Paginator'
+import Paginator from './../common/Paginator/Paginator'
 import User from './User'
-import { UserType } from '../../types/types'
+import { UserType } from './../../types/types'
 
 type PropsType = {
   totalUsersCount: number
@@ -20,7 +20,7 @@ const Users: React.FC<PropsType> = (props) => {
       <Paginator
         currentPage={props.currentPage}
         onPageChanged={props.onPageChanged}
-        totalItemsCount={props.totalUsersCount}
+        totalUsersCount={props.totalUsersCount}
         pageSize={props.pageSize}
       />
       <div className={s.users}>

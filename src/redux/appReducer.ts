@@ -1,8 +1,6 @@
 import { getAuthUserData } from './authReducer'
 import { InferActionsTypes } from './reduxStore'
 
-const SET_INIT = 'SET_INIT'
-
 let initialState = {
   init: false,
 }
@@ -12,7 +10,7 @@ type ActionsType = InferActionsTypes<typeof actions>
 
 const appReducer = (state = initialState, action: ActionsType): InitialStateType => {
   switch (action.type) {
-    case SET_INIT:
+    case 'SET_INIT':
       return {
           ...state,
           init: true
@@ -23,7 +21,7 @@ const appReducer = (state = initialState, action: ActionsType): InitialStateType
 }
 
 export const actions = {
-  setInit: () => ({ type: SET_INIT } as const)
+  setInit: () => ({ type: 'SET_INIT' } as const)
 }
 
 export const initApp = () => (dispatch: any) => {

@@ -2,11 +2,10 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import s from './User.module.scss'
 import Ava from './../../assets/images/Ava.png'
-import { UserType } from '../../types/types'
+import { UserType } from './../../types/types'
 
 type PropsType = {
   user: UserType
-  followingInProgress: Array<number>
   unfollow: (userId: number) => void
   follow: (userId: number) => void
 }

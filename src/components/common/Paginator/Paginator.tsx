@@ -4,14 +4,14 @@ import s from './Paginator.module.scss'
 import { RightOutlined, LeftOutlined } from '@ant-design/icons'
 
 type PropsType = {
-  totalItemsCount: number
+  totalUsersCount: number
   pageSize: number
   currentPage?: number
   onPageChanged?: (pageNumber: number) => void
   portionSize?: number
 }
 
-const Paginator: React.FC<PropsType> = ({
+let Paginator: React.FC<PropsType> = ({
   totalUsersCount,
   pageSize,
   currentPage = 1,
@@ -38,14 +38,9 @@ const Paginator: React.FC<PropsType> = ({
       <div className={s.currentPage}>
         {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
           .map((p) => {
-          return (
-            <span
-              className={currentPage === p && s.selectedPage}
-              onClick={() => {onPageChanged(p)}}
-            >
-              {" " + p + " "}
-            </span>
-          )
+            return (
+              <span className={currentPage === p && s.selectedPage} onClick={() => {onPageChanged(p)}}>{" " + p + " "}</span>
+            )
         })}
       </div>
       { portionCount > portionNumber &&

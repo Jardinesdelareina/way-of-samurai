@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
+import { Action, applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import thunkMiddleware, { ThunkAction } from 'redux-thunk'
 import { reducer as formReducer } from 'redux-form'
 import authReducer from './authReducer'
@@ -7,6 +7,7 @@ import usersReducer from './usersReducer'
 import appReducer from './appReducer'
 
 // Объединение редьюсеров с помощью combineReducers
+// rootReducer принимает стейт целиком, дробит его на отдельные редьюсеры, которые возвращают ему обновленный стейт
 let rootReducer = combineReducers({
     profilePage: profileReducer,
     usersPage: usersReducer,
@@ -15,9 +16,13 @@ let rootReducer = combineReducers({
     form: formReducer // Создает стейт для обслуживания форм
 })
 
-type RootReducerType = typeof rootReducer
+// typeof создает тип на основе rootReducer, сам анализирует функцию и определяет ее тип - неявная типизация
+type RootReducerType = typeof rootReducer 
+
+// Определяет то, что возвращается из RootReducerType и фиксирует в AppStateType 
 export type AppStateType = ReturnType<RootReducerType>
 
+// Передается тип объекта, который возвращает action creator (принимает набор аргументов и возвращает any)
 export type InferActionsTypes<T> = T extends { [keys: string]: (...args: any[]) => infer U } ? U : never
 
 export type BaseThunkType<A extends Action = Action, R = Promise<void>> = ThunkAction<R, AppStateType, unknown, A>
