@@ -23,11 +23,7 @@ type MapDispatchPropsType = {
   follow: (userId: number) => void
 }
 
-type OwnPropsType = {
-  pageTitle: string
-}
-
-type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
+type PropsType = MapStatePropsType & MapDispatchPropsType
 
 class UsersContainer extends React.Component<PropsType> {
   componentDidMount() {
@@ -66,7 +62,7 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
 
 export default compose(withAuthRedirect,
   // TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, State = DefaultRootState
-  connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, {
+  connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, {
   follow,
   unfollow,
   getUsers: requestUsers

@@ -1,12 +1,16 @@
 import { connect } from 'react-redux'
-import { compose } from 'redux'
-import { getMyPost } from './../../../utils/selectors/profileSelectors'
-import { addPost, deletePost } from './../../../redux/profileReducer'
-import Post, { DispatchPropsType, MapPropsType } from './Post'
+import { actions } from '../../../redux/profileReducer'
 import { AppStateType } from '../../../redux/reduxStore'
+import { getMyPost } from '../../../utils/selectors/profileSelectors'
+import Post, { DispatchPropsType, MapPropsType } from './Post'
 
 const mapStateToProps = (state: AppStateType) => ({
     myPost: getMyPost(state),
 })
+  
+const PostContainer = connect<MapPropsType, DispatchPropsType, {}, AppStateType>(mapStateToProps, {
+    addPost: actions.addPost,
+    deletePost: actions.deletePost
+})(Post)
 
-export default compose<MapPropsType, DispatchPropsType, {}, AppStateType>(connect(mapStateToProps, {addPost, deletePost})) (Post)
+export default PostContainer

@@ -12,11 +12,12 @@ export type PropsType = {
 }
 
 export type MapPropsType = {
-  posts: Array<PostType>
+  myPost: Array<PostType>
 }
 
 export type DispatchPropsType = {
   addPost: (newPostText: string) => void
+  deletePost: (postId: number) => void
 }
 
 const PostItem: React.FC<PropsType> = (props) => {
@@ -55,7 +56,7 @@ const Post: React.FC<MapPropsType & DispatchPropsType> = React.memo(props => {
     что вводится в textarea или input, и эти данные передаются к addPost, логика которого
     прописана в profileReducer */
     <div className={s.profile__post}>
-      <AddPostReduxForm onSubmit={addNewPost} />
+      <AddPostReduxForm onSubmit={addNewPost} message={''} />
       <div>{elementPost}</div>
     </div>
   )

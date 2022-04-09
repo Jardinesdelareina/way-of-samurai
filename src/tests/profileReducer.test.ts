@@ -1,25 +1,27 @@
-import profileReducer, { addPost, deletePost } from '../redux/profileReducer'
+import profileReducer, { actions } from './../redux/profileReducer'
 
 let state = {
-    myPost: [
-      {
-        id: 1,
-        message: "Hi! How are you?",
-      },
-      {
-        id: 2,
-        message: "Todo esta bien!!!",
-      },
-      {
-        id: 3,
-        message: "Lorem, ipsum",
-      },
-    ],
+  myPost: [
+    {
+      id: 1,
+      message: "Hi! How are you?",
+    },
+    {
+      id: 2,
+      message: "Todo esta bien!!!",
+    },
+    {
+      id: 3,
+      message: "Lorem, ipsum",
+    },
+  ],
+  profile: null,
+  status: '',
 }
 
 test('Количество постов', () => {
     // test data
-    let action = addPost("Новый пост")
+    let action = actions.addPost("Новый пост")
 
     // action
     let newState = profileReducer(state, action)
@@ -30,7 +32,7 @@ test('Количество постов', () => {
   
 test('Инициализация поста', () => {
     // test data
-    let action = addPost("Новый пост")
+    let action = actions.addPost("Новый пост")
 
     // action
     let newState = profileReducer(state, action)
@@ -42,7 +44,7 @@ test('Инициализация поста', () => {
   
 test('Удаление поста', () => {
     // test data
-    let action = deletePost(1)
+    let action = actions.deletePost(1)
 
     // action
     let newState = profileReducer(state, action)
