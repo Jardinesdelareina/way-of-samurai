@@ -60,7 +60,7 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
     isFetching: getIsFetching(state),
 })
 
-export default compose(withAuthRedirect,
+export default compose<React.ComponentType>(withAuthRedirect,
   // TStateProps = {}, TDispatchProps = {}, TOwnProps = {}, State = DefaultRootState
   connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, {
   follow,

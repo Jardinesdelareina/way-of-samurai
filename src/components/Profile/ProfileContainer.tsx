@@ -45,8 +45,7 @@ class ProfileContainer extends React.Component<PropsType> {
     }
   }
 
-  componentWillUnmount(): void {
-  }
+  componentWillUnmount(): void {}
 
   render() {
     return (

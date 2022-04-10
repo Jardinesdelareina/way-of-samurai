@@ -1,6 +1,6 @@
 import { FormAction, stopSubmit } from 'redux-form'
-import { ResultCodeForCapcthaEnum, ResultCodesEnum } from './../api/api'
-import { authAPI } from './../api/apiAuth'
+import { ResultCodesEnum } from '../api/api'
+import { authAPI } from '../api/apiAuth'
 import { securityAPI } from './../api/apiSecurity'
 import { BaseThunkType, InferActionsTypes } from './reduxStore'
 
@@ -8,7 +8,7 @@ let initialState = {
   userId: null as number | null,
   login: null as string | null,
   email: null as string | null,
-  isAuth: false as boolean,
+  isAuth: false,
   captchaUrl: null as string | null
 }
 
@@ -31,32 +31,32 @@ const authReducer = (state = initialState, action: ActionsType): InitialStateTyp
 
 export const actions = {
   setAuthUserData: (
-    id: number | null,
+    userId: number | null,
     login: string | null,
     email: string | null,
     isAuth: boolean
-  ) => ({ type: 'SET_AUTH_USER_DATA', payload: { id, login, email, isAuth } } as const),
+  ) => ({ type: 'SET_AUTH_USER_DATA', payload: { userId, login, email, isAuth } } as const),
   getCaptchaUrlSuccess: (captchaUrl: string) => ({ type: 'GET_CAPTCHA_URL_SUCCESS', payload: { captchaUrl } } as const)
 }
 
 export const getAuthUserData = (): ThunkType => async (dispatch) => {
   const response = await authAPI.me()
-  if (response.data.resultCode === ResultCodesEnum.Success) {
-    const { id, login, email } = response.data.data
+  if (response.resultCode === ResultCodesEnum.Success) {
+    const { id, login, email } = response.data
     dispatch(actions.setAuthUserData(id, login, email, true))
   }
 }
 
 export const login = (email: string, password: string, rememberMe: boolean, captcha: string): ThunkType => async (dispatch) => {
   const response = await authAPI.login(email, password, rememberMe, captcha)
-  if (response.data.resultCode === ResultCodesEnum.Success) {
+  if (response.resultCode === ResultCodesEnum.Success) {
     dispatch(getAuthUserData())
   } else {
-    if (response.data.resultCode === ResultCodeForCapcthaEnum.CaptchaIsRequired) {
+    if (response.resultCode === ResultCodesEnum.CaptchaIsRequired) {
       dispatch(getCaptchaUrl())
     }
 
-    const message = response.data.messages[0]            // Если messages есть,
+    const message = response.messages[0]            // Если messages есть,
         ? "Поле email или пароль заполнены не верно"     // вывести это сообщение
         : "Ошибка"                                       // иначе вывести это сообщение
     dispatch(stopSubmit("login", { _error: message }))   // Прекратить сабмит формы, с name'ом "login"

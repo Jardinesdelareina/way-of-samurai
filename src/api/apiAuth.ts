@@ -1,4 +1,4 @@
-import { APIResponseType, instance, ResultCodeForCapcthaEnum, ResultCodesEnum } from './api'
+import { APIResponseType, instance } from './api'
 
 type MeResponseType = {
     id: number
@@ -7,13 +7,12 @@ type MeResponseType = {
 }
 type LoginResponseType = {
     userId: number
-    resultCode: ResultCodesEnum | ResultCodeForCapcthaEnum,
-    messages: Array<string>
 }
 
 export const authAPI = {
-    me() {
-        return instance.get<APIResponseType<MeResponseType>>(`auth/me`) // Получить мои данные
+    async me() {
+        const res = await instance.get<APIResponseType<MeResponseType>>(`auth/me`)
+        return res.data // Получить мои данные
     },
     async login(email: string, password: string, rememberMe = false, captcha: null | string = null) {
         const res = await instance.post<APIResponseType<LoginResponseType>>(`auth/login`, {

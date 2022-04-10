@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { UserType } from './../types/types'
+import { UserType } from '../types/types'
 
 /* 
 REST API - инструкция(рекомендация) по использованию http - протокола для взаимодействия
@@ -22,10 +22,11 @@ export const instance = axios.create({
 export enum ResultCodesEnum {
     Success = 0,
     Error = 1,
+    CaptchaIsRequired = 10
 }
 
 export enum ResultCodeForCapcthaEnum {
-    CaptchaIsRequired = 10
+    
 }
 
 export type GetItemsType = {

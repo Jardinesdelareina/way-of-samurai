@@ -26,9 +26,9 @@ const User: React.FC<PropsType> = ({ isOwner, savePhoto, saveProfile, profile, s
   }
 
   const onUpdatePhoto = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files.length) {
-      savePhoto(e.target.files[0])
-    }
+    if (e.target.files && e.target.files.length) {
+      savePhoto(e.target.files[0]);
+  }
   }
 
   const onSubmit = (formData: ProfileType) => {
@@ -42,7 +42,7 @@ const User: React.FC<PropsType> = ({ isOwner, savePhoto, saveProfile, profile, s
   return (
     <div className={s.user}>
       <div className={s.user__about}>
-        <UserStatus isOwner={isOwner} status={status} updateStatus={updateStatus} /> 
+        <UserStatus status={status} updateStatus={updateStatus} /> 
       </div>
       <div className={s.user__description}>
         <div className={s.user__ava}>
