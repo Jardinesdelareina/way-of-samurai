@@ -1,0 +1,17 @@
+@import './../../../style/templates.scss';
+
+form {
+    display: flex;
+    flex-direction: column;
+    input {
+        @extend %input;
+    }
+    
+    textarea {
+        @extend %textarea;
+    }
+    
+    button {
+        @extend %button;
+    }
+}
