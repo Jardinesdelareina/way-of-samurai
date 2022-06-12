@@ -1,6 +1,6 @@
-## Way of Samurai
+# Way of Samurai
 
-# Social Network
+## Social Network
 
 ### npx create-react-app my-app
 новый проект
