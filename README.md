@@ -1,6 +1,6 @@
 # Way of Samurai
 
-## Social Network
+## Социальная сеть на React, Redux
 
 ### npx create-react-app my-app
 новый проект
