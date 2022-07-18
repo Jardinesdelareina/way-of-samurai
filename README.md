@@ -4,7 +4,9 @@
 ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 
 >npx create-react-app my-app
+
 >cd my-app
+
 >npm start
 
 ##### Sass
